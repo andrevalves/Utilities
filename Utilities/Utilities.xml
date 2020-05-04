@@ -1,0 +1,241 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Utilities</name>
+    </assembly>
+    <members>
+        <member name="M:Utilities.Converters.ConvertDateTime.ToDateTime(System.String,System.String)">
+            <sumary>
+            Transform string into dateTime. Returns null if parse is not successful
+            </sumary>
+        </member>
+        <member name="T:Utilities.Converters.ConvertNumber">
+            <summary>
+            Number Converter
+            </summary>
+        </member>
+        <member name="M:Utilities.Converters.ConvertNumber.ToFloat(System.String)">
+            <summary>
+            Returns a float number. Returns 0 if the string is not a valid number.
+            </summary>
+        </member>
+        <member name="M:Utilities.Converters.ConvertNumber.ToDouble(System.String)">
+            <summary>
+            Returns a double number. Returns 0 if the string is not a valid number.
+            </summary>
+        </member>
+        <member name="M:Utilities.Converters.ConvertNumber.ToDecimal(System.String)">
+            <summary>
+            Returns a decimal number. Returns 0 if the string is not a valid number.
+            </summary>
+        </member>
+        <member name="M:Utilities.Converters.ConvertNumber.ToInt(System.String)">
+            <summary>
+            Returns a integer number. Returns 0 if the string is not a valid number.
+            </summary>
+        </member>
+        <member name="M:Utilities.Converters.JsonConverter.ToJson(System.Object,System.Boolean)">
+            <summary>
+            Converts objects to Json string.
+            </summary>
+            <param name="objeto">Object to be serialized.</param>
+            <param name="ignoreNullValues">If true, null values will not be included in the Json string. Default is true.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Utilities.Converters.JsonConverter`1.ToObject(System.String)">
+            <summary>
+            Converts Json string to the specified object
+            </summary>
+            <param name="jsonString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Utilities.Converters.JsonConverter`1.ConvertObject(System.Object)">
+            <summary>
+            Uses Json Serializer to convert objects
+            </summary>
+            <param name="objeto">Object to be converted.</param>
+            <returns>New converted object.</returns>
+        </member>
+        <member name="M:Utilities.Extensions.EnumExtension.GetEnumDescription(System.Enum)">
+            <summary>
+            Returns the Description of the Enum
+            <para/>
+            If the enum doesn't have a Description, returns the toString of the Enum
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Utilities.Extensions.EnumExtension.GetValueByDescription(System.Type,System.String)">
+            <summary>
+            Returns the EnumValue of the given description.
+            <para/>
+            How to use: var response = typeof(MyEnum).GetValueByDescription("MyDescription");
+            <line/>
+            var value = (MyEnum)response;
+            </summary>
+        </member>
+        <member name="M:Utilities.Extensions.EnumExtension.Contains(System.Enum,System.Enum)">
+            <summary>
+            Check if a certain enum value contains the enum input. 
+            This can be usefull if the enum contains more than one value
+            <para/>
+            Example: 
+            <code> 
+            (TestEnum.Value1 | TestEnum.Value2).Contains(TestEnum.Value1) == true
+            </code>
+            <para/>
+            If the inputs contains values that this enum does not, it returns true.
+            <code> 
+            (TestEnum.Value1 | TestEnum.Value2).Contains(TestEnum.Value1 | TestEnum.Value4) == true
+            </code>
+            </summary>
+            <param name="value"></param>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Utilities.Extensions.EnumExtension.ContainsAll(System.Enum,System.Enum)">
+            <summary>
+            Check if a certain enum value contains the enum input. 
+            This can be usefull if the enum contains more than one value
+            <para/>
+            Example: 
+            <code> 
+            (TestEnum.Value1 | TestEnum.Value2).Contains(TestEnum.Value1) == true
+            </code>
+            <para/>
+            If the inputs contains values that this enum does not, it returns false.
+            <code> 
+            (TestEnum.Value1 | TestEnum.Value2).Contains(TestEnum.Value1 | TestEnum.Value4) == false
+            </code>
+            </summary>
+            <param name="value"></param>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Utilities.Extensions.ListExtension.AnyEqualElement``1(System.Collections.Generic.List{``0},System.Collections.Generic.List{``0})">
+            <summary>
+            Checks whether two lists have at least one element in common.
+            <para/>
+            The method Object.Equals is used to compare both elements.
+            </summary>
+        </member>
+        <member name="M:Utilities.Extensions.ListExtension.AnyEqualElement``1(System.Collections.Generic.List{``0},System.Collections.Generic.List{``0},System.Func{``0,``0,System.Boolean})">
+            <summary>
+            Checks whether two lists have at least one element in common.
+            <para/>
+            The <code>areEqualFunc</code> parameter is a function used to compare both elements.
+            </summary>
+        </member>
+        <member name="M:Utilities.Extensions.StringExtension.Capitalize(System.String)">
+            <summary>
+            Converts the first char of a string to UpperCase
+            </summary>
+        </member>
+        <member name="M:Utilities.Extensions.StringExtension.CapitalizeSentence(System.String,System.String[],System.String[])">
+            <summary>
+            Capitalizes every word on a given string.
+            <para/> If param <c>wordsLowerCase</c> is used, every word on array <c>wordsLowerCase</c> won't be Capitalized, but as lower case
+            <para/> If param <c>wordsUpperCase</c> is used, every word on array <c>wordsUpperCase</c> won't be Capitalized, but as upper case
+            </summary>
+        </member>
+        <member name="M:Utilities.Extensions.StringExtension.CapitalizeTitlePt(System.String,System.String[],System.String[])">
+            <summary>
+            Capitalizes every word on a given string, excluding PT prepositions
+            <para/> If param <c>wordsLowerCase</c> is used, every word on array <c>wordsLowerCase</c> won't be Capitalized, but as lower case
+            <para/> If param <c>wordsUpperCase</c> is used, every word on array <c>wordsUpperCase</c> won't be Capitalized, but as upper case
+            </summary>
+        </member>
+        <member name="M:Utilities.Extensions.StringExtension.ContainsCaseIgnored(System.String[],System.String)">
+            <summary>
+            Check if the list of strings contains a given string. It is not case-sensitive
+            </summary>
+        </member>
+        <member name="M:Utilities.Extensions.StringExtension.ContainsCaseIgnored(System.String,System.String)">
+            <summary>
+            Check if the string contains a given string. It is not case-sensitive
+            </summary>
+        </member>
+        <member name="M:Utilities.Extensions.StringExtension.EqualsCaseIgnored(System.String,System.String)">
+            <summary>
+            Check if the string is equal to the given value. It is not case-sensitive
+            </summary>
+        </member>
+        <member name="M:Utilities.Extensions.StringExtension.GetEnumDescription(System.Enum)">
+            <summary>
+            Returns the Description of the Enum
+            <para/>
+            If the enum doesn't have a Description, returns the toString of the Enum
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Utilities.Extensions.StringExtension.IsNullOrEmpty(System.String)">
+            <summary>
+            A simpler way to check if a string is null or empty
+            </summary>
+        </member>
+        <member name="M:Utilities.Extensions.StringExtension.ToJsonString(System.Object)">
+            <summary>
+            Converts object to a Json string.
+            </summary>
+            <param name="objeto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Utilities.Extensions.StringExtension.RemoveAcentos(System.String)">
+            <summary>
+            Remove acentos.
+            </summary>
+            <param name="text"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Utilities.Extensions.StringExtension.RemoveSpecialCharacters(System.String)">
+            <summary>
+            Remove all chars that are not letters or numbers
+            </summary>
+        </member>
+        <member name="T:Utilities.GeradorSenhas">
+            <summary>
+            Gerador de Senhas
+            </summary>
+        </member>
+        <member name="M:Utilities.GeradorSenhas.GerarSenhaAlfaNumerica(System.Int32)">
+            <summary>
+            Gera senhas alfanuméricas.
+            </summary>
+            <param name="tamanho">Quantidade de caracteres.</param>
+            <returns>Senha aleatória</returns>
+        </member>
+        <member name="M:Utilities.GeradorSenhas.GerarSenhaNumerica(System.Int32)">
+            <summary>
+            Gera senhas numéricas.
+            </summary>
+            <param name="tamanho">Quantidade de caracteres.</param>
+            <returns>Senha aleatória</returns>
+        </member>
+        <member name="M:Utilities.GeradorSenhas.GerarSenhaForte(System.Int32)">
+            <summary>
+            Gera senhas com algarismos alfanuméricos e símbolos.
+            </summary>
+            <param name="tamanho">Quantidade de caracteres.</param>
+            <returns>Senha aleatória</returns>
+        </member>
+        <member name="M:Utilities.Validations.IsNumberOnly(System.String)">
+            <summary>
+            Checks if a given string contains only number. If any char is not numeric, the return is false.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Utilities.Validations.IsStrongPassword(System.String)" -->
+        <member name="M:Utilities.Validations.IsValidoCpf(System.String)">
+            <summary>
+            Verifies if the given string is a valid CPF.
+            </summary>
+            <param name="cpf"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Utilities.Validations.IsValidEmail(System.String)">
+            <summary>
+            Check if the given string is a valid email address
+            </summary>
+        </member>
+    </members>
+</doc>

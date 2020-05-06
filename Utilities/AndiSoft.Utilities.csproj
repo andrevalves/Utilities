@@ -10,7 +10,11 @@
     <Product>Utilities</Product>
     <PackageProjectUrl>https://github.com/andrevalves/Utilities</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
+    <PackageReleaseNotes>- Renamed class JsonConverter to JsonParse to differ from NewtonSoft's. 
+- Added TryParse methods.
+- Added Generics Conversion
+</PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">

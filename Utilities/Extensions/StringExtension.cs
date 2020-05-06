@@ -6,6 +6,9 @@ using AndiSoft.Utilities.Converters;
 
 namespace AndiSoft.Utilities.Extensions
 {
+    /// <summary>
+    /// String Extensions
+    /// </summary>
     public static class StringExtension
     {
         private static readonly string[] Preposicoes = { "e", "de", "da", "das", "do", "dos", "com", "na", "nas", "no", "nos" };
@@ -104,11 +107,11 @@ namespace AndiSoft.Utilities.Extensions
         }
 
         ///<summary>
-        ///A simpler way to check if a string is null or empty
+        ///A simpler way to check if a string is null, empty or white-space only.
         ///</summary>
         public static bool IsNullOrEmpty(this string text)
         {
-            return string.IsNullOrEmpty(text.Trim());
+            return string.IsNullOrWhiteSpace(text);
         }
 
         /// <summary>
@@ -116,9 +119,9 @@ namespace AndiSoft.Utilities.Extensions
         /// </summary>
         /// <param name="objeto"></param>
         /// <returns></returns>
-        public static string ToJsonString(this object objeto)
+        public static string ToJson(this object objeto)
         {
-            return JsonConverter.ToJson(objeto, true);
+            return JsonParser.ParseObject(objeto);
         }
 
         /// <summary>

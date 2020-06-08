@@ -51,20 +51,13 @@ namespace AndiSoft.Utilities.Converters
                 return false;
             }
         }
-    }
 
-    /// <summary>
-    /// Generics conversion using JsonSerializer
-    /// </summary>
-    /// <typeparam name="T">Destination object type</typeparam>
-    public static class JsonParser<T>
-    {
         /// <summary>
         /// Converts Json string to the specified object
         /// </summary>
         /// <param name="jsonString"></param>
         /// <returns>Parsed object</returns>
-        public static T ParseJson(string jsonString)
+        public static T ParseJson<T>(string jsonString)
         {
             return JsonConvert.DeserializeObject<T>(jsonString);
         }
@@ -75,7 +68,7 @@ namespace AndiSoft.Utilities.Converters
         /// <param name="jsonString">Object to be parsed.</param>
         /// <param name="obj">New parsed object.</param>
         /// <returns>True if sucessful. False otherwise.</returns>
-        public static bool TryParse(string jsonString, out T obj)
+        public static bool TryParse<T>(string jsonString, out T obj)
         {
             try
             {
@@ -84,7 +77,7 @@ namespace AndiSoft.Utilities.Converters
             }
             catch
             {
-                obj = JsonConvert.DeserializeObject<T>("{}");
+                obj = JsonConvert.DeserializeObject<T>("{ }");
                 return false;
             }
         }

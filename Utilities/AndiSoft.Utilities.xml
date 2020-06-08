@@ -77,20 +77,14 @@
             <param name="ignoreNullValues">If true, null values will not be included in the Json string. Default is true.</param>
             <returns>True if sucessful. False otherwise.</returns>
         </member>
-        <member name="T:AndiSoft.Utilities.Converters.JsonParser`1">
-            <summary>
-            Generics conversion using JsonSerializer
-            </summary>
-            <typeparam name="T">Destination object type</typeparam>
-        </member>
-        <member name="M:AndiSoft.Utilities.Converters.JsonParser`1.ParseJson(System.String)">
+        <member name="M:AndiSoft.Utilities.Converters.JsonParser.ParseJson``1(System.String)">
             <summary>
             Converts Json string to the specified object
             </summary>
             <param name="jsonString"></param>
             <returns>Parsed object</returns>
         </member>
-        <member name="M:AndiSoft.Utilities.Converters.JsonParser`1.TryParse(System.String,`0@)">
+        <member name="M:AndiSoft.Utilities.Converters.JsonParser.TryParse``1(System.String,``0@)">
             <summary>
             Try to parse object to the given type.
             </summary>

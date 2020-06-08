@@ -1,20 +1,26 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net451;net461;net462;net47</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;;netcoreapp3.1;net451;net461;net462;net47</TargetFrameworks>
     <Authors>André Alves</Authors>
-    <Description>Contains string extensions, type converters, generics conversion, Json serializer, validations, and other helpful abstractions.</Description>
+    <Description>This packge contains some useful tools such as:
+  - String Extensions
+  - List Extensions
+  - Enum Extensions
+  - Type Converters
+  - Generics Conversion
+  - Json serializer and converter
+  - Password generator
+  - Validations
+</Description>
     <Copyright>AndiSoft</Copyright>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageTags>string list enum extensions validations json serializers converters</PackageTags>
     <Product>Utilities</Product>
     <PackageProjectUrl>https://github.com/andrevalves/Utilities</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Version>1.0.2</Version>
-    <PackageReleaseNotes>- Renamed class JsonConverter to JsonParse to differ from NewtonSoft's. 
-- Added TryParse methods.
-- Added Generics Conversion
-</PackageReleaseNotes>
+    <Version>1.0.3</Version>
+    <PackageReleaseNotes></PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
@@ -27,6 +33,12 @@
     <DebugSymbols>false</DebugSymbols>
     <DocumentationFile>AndiSoft.Utilities.xml</DocumentationFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Http\**" />
+    <EmbeddedResource Remove="Http\**" />
+    <None Remove="Http\**" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />

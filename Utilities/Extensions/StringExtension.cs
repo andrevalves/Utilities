@@ -125,11 +125,11 @@ namespace AndiSoft.Utilities.Extensions
         }
 
         /// <summary>
-        /// Remove acentos.
+        /// Remove diacritics
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
-        public static string RemoveAcentos(this string text)
+        public static string RemoveAccents(this string text)
         {
             for (var i = 0; i < ComAcentos.Length; i++)
             {

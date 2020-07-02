@@ -12,14 +12,14 @@
   - Json serializer and converter
   - Password generator
   - Validations
-</Description>
+  - Helpers (new)</Description>
     <Copyright>AndiSoft</Copyright>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageTags>string list enum extensions validations json serializers converters</PackageTags>
     <Product>Utilities</Product>
     <PackageProjectUrl>https://github.com/andrevalves/Utilities</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Version>1.0.3</Version>
+    <Version>1.0.6</Version>
     <PackageReleaseNotes></PackageReleaseNotes>
   </PropertyGroup>
 

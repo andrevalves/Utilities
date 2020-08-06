@@ -201,15 +201,6 @@
             Check if the string is equal to the given value. It is not case-sensitive
             </summary>
         </member>
-        <member name="M:AndiSoft.Utilities.Extensions.StringExtension.GetEnumDescription(System.Enum)">
-            <summary>
-            Returns the Description of the Enum
-            <para/>
-            If the enum doesn't have a Description, returns the toString of the Enum
-            </summary>
-            <param name="value"></param>
-            <returns></returns>
-        </member>
         <member name="M:AndiSoft.Utilities.Extensions.StringExtension.IsNullOrEmpty(System.String)">
             <summary>
             A simpler way to check if a string is null, empty or white-space only.

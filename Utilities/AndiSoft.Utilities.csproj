@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;;netcoreapp3.1;net451;net461;net462;net47</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;netstandard2.1;netcoreapp3.1;net451;net462</TargetFrameworks>
     <Authors>André Alves</Authors>
     <Description>This packge contains some useful tools such as:
   - String Extensions
@@ -19,8 +19,8 @@
     <Product>Utilities</Product>
     <PackageProjectUrl>https://github.com/andrevalves/Utilities</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Version>1.0.6</Version>
-    <PackageReleaseNotes></PackageReleaseNotes>
+    <Version>1.0.7</Version>
+    <PackageReleaseNotes>Fixed ambiguous GetEnumDescription call</PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">

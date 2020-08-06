@@ -91,21 +91,6 @@ namespace AndiSoft.Utilities.Extensions
             return text.Equals(value, StringComparison.CurrentCultureIgnoreCase);
         }
 
-        /// <summary>
-        /// Returns the Description of the Enum
-        /// <para/>
-        /// If the enum doesn't have a Description, returns the toString of the Enum
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        public static string GetEnumDescription(this Enum value)
-        {
-            var fi = value.GetType().GetField(value.ToString());
-            var attributes = (DescriptionAttribute[])fi.GetCustomAttributes(typeof(DescriptionAttribute), false);
-
-            return attributes.Length > 0 ? attributes[0].Description : value.ToString();
-        }
-
         ///<summary>
         ///A simpler way to check if a string is null, empty or white-space only.
         ///</summary>

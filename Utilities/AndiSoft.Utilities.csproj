@@ -5,6 +5,7 @@
     <Authors>André Alves</Authors>
     <Description>This packge contains some useful tools such as:
   - String Extensions
+  - Date Extensions (new)
   - List Extensions
   - Enum Extensions
   - Type Converters
@@ -19,8 +20,9 @@
     <Product>Utilities</Product>
     <PackageProjectUrl>https://github.com/andrevalves/Utilities</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Version>1.0.7</Version>
-    <PackageReleaseNotes>Fixed ambiguous GetEnumDescription call</PackageReleaseNotes>
+    <Version>1.1.0-beta2</Version>
+    <PackageReleaseNotes>Fixed ambiguous GetEnumDescription call
+Date extension</PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">

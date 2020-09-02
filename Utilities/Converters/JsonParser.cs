@@ -9,12 +9,23 @@ namespace AndiSoft.Utilities.Converters
     public static class JsonParser
     {
         /// <summary>
+        /// Converts object to a Json string.
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <param name="ignoreNullValues"></param>
+        /// <returns></returns>
+        public static string ToJson(this object obj, bool ignoreNullValues = false)
+        {
+            return ParseObject(obj, ignoreNullValues);
+        }
+
+        /// <summary>
         /// Converts objects to Json string.
         /// </summary>
         /// <param name="obj">Object to be serialized.</param>
-        /// <param name="ignoreNullValues">If true, null values will not be included in the Json string. Default is true.</param>
+        /// <param name="ignoreNullValues">If true, null values will not be included in the Json string. Default is false.</param>
         /// <returns></returns>
-        public static string ParseObject(object obj, bool ignoreNullValues = true)
+        public static string ParseObject(object obj, bool ignoreNullValues = false)
         {
             var jsonSettings = new JsonSerializerSettings
             {
@@ -24,6 +35,18 @@ namespace AndiSoft.Utilities.Converters
 
             return JsonConvert.SerializeObject(obj, jsonSettings);
         }
+        
+        /// <summary>
+        /// Converts Json string to the specified object
+        /// </summary>
+        /// <param name="jsonString">Json string</param>
+        /// <returns>Parsed object</returns>
+        public static T ParseJson<T>(string jsonString)
+        {
+            return JsonConvert.DeserializeObject<T>(jsonString);
+        }
+
+        #region TryParse
 
         /// <summary>
         /// Try to parse object to the given type.
@@ -32,7 +55,7 @@ namespace AndiSoft.Utilities.Converters
         /// <param name="jsonString">New parsed object.</param>
         /// <param name="ignoreNullValues">If true, null values will not be included in the Json string. Default is true.</param>
         /// <returns>True if sucessful. False otherwise.</returns>
-        public static bool ParseObject(object obj, out string jsonString, bool ignoreNullValues = true)
+        public static bool TryParse(object obj, out string jsonString, bool ignoreNullValues = true)
         {
             var jsonSettings = new JsonSerializerSettings
             {
@@ -50,16 +73,6 @@ namespace AndiSoft.Utilities.Converters
                 jsonString = null;
                 return false;
             }
-        }
-
-        /// <summary>
-        /// Converts Json string to the specified object
-        /// </summary>
-        /// <param name="jsonString"></param>
-        /// <returns>Parsed object</returns>
-        public static T ParseJson<T>(string jsonString)
-        {
-            return JsonConvert.DeserializeObject<T>(jsonString);
         }
 
         /// <summary>
@@ -81,5 +94,9 @@ namespace AndiSoft.Utilities.Converters
                 return false;
             }
         }
+
+        #endregion
+
+        
     }
 }

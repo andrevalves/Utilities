@@ -45,7 +45,7 @@ namespace AndiSoft.Utilities
             do
             {
                 senhaForte = GeneratePassword(SenhaForte, size);
-            } while (!Validations.IsStrongPassword(senhaForte));
+            } while (!AndiValidation.IsStrongPassword(senhaForte));
 
             return senhaForte;
         }

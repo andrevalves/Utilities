@@ -4,7 +4,141 @@
         <name>AndiSoft.Utilities</name>
     </assembly>
     <members>
-        <member name="M:AndiSoft.Utilities.Converters.ConvertDateTime.ToDateTime(System.String,System.String)">
+        <member name="M:AndiSoft.Utilities.AndiConvert.TryParse(System.String,System.DateTime@,System.String)">
+            <sumary>
+            Transform string into dateTime. Returns null if parse is not successful
+            </sumary>
+        </member>
+        <member name="M:AndiSoft.Utilities.AndiConvert.ToFloat(System.String)">
+            <summary>
+            Returns a float number. Returns 0 if the string is not a valid number.
+            </summary>
+        </member>
+        <member name="M:AndiSoft.Utilities.AndiConvert.ToDouble(System.String)">
+            <summary>
+            Returns a double number. Returns 0 if the string is not a valid number.
+            </summary>
+        </member>
+        <member name="M:AndiSoft.Utilities.AndiConvert.ToDecimal(System.String)">
+            <summary>
+            Returns a decimal number. Returns 0 if the string is not a valid number.
+            </summary>
+        </member>
+        <member name="M:AndiSoft.Utilities.AndiConvert.ToInt(System.String)">
+            <summary>
+            Returns a integer number. Returns 0 if the string is not a valid number.
+            </summary>
+        </member>
+        <member name="M:AndiSoft.Utilities.AndiConvert.Parse``1(System.Object)">
+            <summary>
+            Converts the object to the given type.
+            </summary>
+            <param name="obj">Object to be converted.</param>
+            <returns>New object of the given type.</returns>
+        </member>
+        <member name="M:AndiSoft.Utilities.AndiConvert.TryParse``1(System.Object,``0@)">
+            <summary>
+            Try to parse object to the given type.
+            </summary>
+            <param name="obj">Object to be parsed.</param>
+            <param name="newObj">New parsed object.</param>
+            <returns>True if sucessful. False otherwise.</returns>
+        </member>
+        <member name="T:AndiSoft.Utilities.AndiHelper">
+            <summary>
+            Some helpers to treat string and other data
+            </summary>
+        </member>
+        <member name="M:AndiSoft.Utilities.AndiHelper.GetNumbersOnly(System.String)">
+            <summary>
+            Returns only numbers of a tring
+            </summary>
+            <param name="text"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AndiSoft.Utilities.AndiHelper.GetLettersOnly(System.String)">
+            <summary>
+            Returns only letters of a tring
+            </summary>
+            <param name="text"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AndiSoft.Utilities.AndiHelper.GetLettersAndNumbers(System.String)">
+            <summary>
+            Returns only letter or numbers of a tring
+            </summary>
+            <param name="text"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AndiSoft.Utilities.AndiHelper.GetMobileNumber(System.String)">
+            <summary>
+            For brazilian phone numbers. Returns a valid phone number if possible.
+            If the given string cannot be parsed to a valid phone number, returns null.
+            If phone is a mobile number (starts with 8 or 9), and has 8 digits apart from the area code, the leading 9 will be inserted.
+            </summary>
+            <param name="phone"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AndiSoft.Utilities.AndiValidation.IsNumberOnly(System.String)">
+            <summary>
+            Checks if a given string contains only number. If any char is not numeric, the return is false.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:AndiSoft.Utilities.AndiValidation.IsStrongPassword(System.String)" -->
+        <member name="M:AndiSoft.Utilities.AndiValidation.IsValidCpf(System.String)">
+            <summary>
+            Verifies if the given string is a valid CPF.
+            </summary>
+            <param name="cpf"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AndiSoft.Utilities.AndiValidation.IsValidCnpj(System.String)">
+            <summary>
+            Verifies if the given string is a valid CNPJ
+            </summary>
+            <param name="cnpj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AndiSoft.Utilities.AndiValidation.IsValidEmail(System.String)">
+            <summary>
+            Check if the given string is a valid email address
+            </summary>
+        </member>
+        <member name="M:AndiSoft.Utilities.AndiValidation.IsValidDate(System.String)">
+            <summary>
+            Check if given string is a valid date
+            </summary>
+            <param name="date">Date (dd/MM/yyyy)</param>
+            <returns></returns>
+        </member>
+        <member name="M:AndiSoft.Utilities.AndiValidation.IsValidDate(System.String,System.String)">
+            <summary>
+            Check if given string is a valid date
+            </summary>
+            <param name="date">Date string</param>
+            <param name="format">Date format. Default: dd/MM/yyyy</param>
+            <returns></returns>
+        </member>
+        <member name="M:AndiSoft.Utilities.AndiValidation.IsValidMobileNumber(System.String)">
+            <summary>
+            Check if given string is a valid mobile number
+            </summary>
+            <param name="phone"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AndiSoft.Utilities.AndiValidation.IsValidMobileNumber(System.String@)">
+            <summary>
+            Check if given string is a valid mobile number and removes special characters
+            </summary>
+            <param name="phone"></param>
+            <returns></returns>
+        </member>
+        <member name="T:AndiSoft.Utilities.Converters.ConvertDateTime">
+            <summary>
+            DateTime Converter
+            </summary>
+        </member>
+        <member name="M:AndiSoft.Utilities.Converters.ConvertDateTime.TryParse(System.String,System.DateTime@,System.String)">
             <sumary>
             Transform string into dateTime. Returns null if parse is not successful
             </sumary>
@@ -60,15 +194,30 @@
             Converts objects to Json
             </summary>
         </member>
+        <member name="M:AndiSoft.Utilities.Converters.JsonParser.ToJson(System.Object,System.Boolean)">
+            <summary>
+            Converts object to a Json string.
+            </summary>
+            <param name="obj"></param>
+            <param name="ignoreNullValues"></param>
+            <returns></returns>
+        </member>
         <member name="M:AndiSoft.Utilities.Converters.JsonParser.ParseObject(System.Object,System.Boolean)">
             <summary>
             Converts objects to Json string.
             </summary>
             <param name="obj">Object to be serialized.</param>
-            <param name="ignoreNullValues">If true, null values will not be included in the Json string. Default is true.</param>
+            <param name="ignoreNullValues">If true, null values will not be included in the Json string. Default is false.</param>
             <returns></returns>
         </member>
-        <member name="M:AndiSoft.Utilities.Converters.JsonParser.ParseObject(System.Object,System.String@,System.Boolean)">
+        <member name="M:AndiSoft.Utilities.Converters.JsonParser.ParseJson``1(System.String)">
+            <summary>
+            Converts Json string to the specified object
+            </summary>
+            <param name="jsonString">Json string</param>
+            <returns>Parsed object</returns>
+        </member>
+        <member name="M:AndiSoft.Utilities.Converters.JsonParser.TryParse(System.Object,System.String@,System.Boolean)">
             <summary>
             Try to parse object to the given type.
             </summary>
@@ -77,13 +226,6 @@
             <param name="ignoreNullValues">If true, null values will not be included in the Json string. Default is true.</param>
             <returns>True if sucessful. False otherwise.</returns>
         </member>
-        <member name="M:AndiSoft.Utilities.Converters.JsonParser.ParseJson``1(System.String)">
-            <summary>
-            Converts Json string to the specified object
-            </summary>
-            <param name="jsonString"></param>
-            <returns>Parsed object</returns>
-        </member>
         <member name="M:AndiSoft.Utilities.Converters.JsonParser.TryParse``1(System.String,``0@)">
             <summary>
             Try to parse object to the given type.
@@ -91,6 +233,35 @@
             <param name="jsonString">Object to be parsed.</param>
             <param name="obj">New parsed object.</param>
             <returns>True if sucessful. False otherwise.</returns>
+        </member>
+        <member name="T:AndiSoft.Utilities.Extensions.DateTimeExtension">
+            <summary>
+            DateTime extension
+            </summary>
+        </member>
+        <member name="M:AndiSoft.Utilities.Extensions.DateTimeExtension.AddWorkdays(System.DateTime,System.Int32,System.Collections.Generic.List{System.DateTime})">
+            <summary>
+            Takes a date, and adds the given workdays
+            </summary>
+            <param name="date"></param>
+            <param name="workDays">Amount of workdays to add</param>
+            <param name="holidays">If present, these dates will be ignored as workdays</param>
+            <returns></returns>
+        </member>
+        <member name="M:AndiSoft.Utilities.Extensions.DateTimeExtension.IsWorkDay(System.DateTime)">
+            <summary>
+            Check if a date is work day
+            </summary>
+            <param name="date"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AndiSoft.Utilities.Extensions.DateTimeExtension.IsHoliday(System.DateTime,System.Collections.Generic.List{System.DateTime})">
+            <summary>
+            Check if a given date is holiday according to the given holiday list
+            </summary>
+            <param name="date"></param>
+            <param name="holidays">Holiday list</param>
+            <returns></returns>
         </member>
         <member name="M:AndiSoft.Utilities.Extensions.EnumExtension.GetEnumDescription(System.Enum)">
             <summary>
@@ -146,6 +317,14 @@
             </summary>
             <param name="value"></param>
             <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AndiSoft.Utilities.Extensions.JsonExtension.ToJson(System.Object,System.Boolean)">
+            <summary>
+            Converts object to a Json string.
+            </summary>
+            <param name="obj"></param>
+            <param name="ignoreNullValues"></param>
             <returns></returns>
         </member>
         <member name="M:AndiSoft.Utilities.Extensions.ListExtension.AnyEqualElement``1(System.Collections.Generic.List{``0},System.Collections.Generic.List{``0})">
@@ -206,11 +385,12 @@
             A simpler way to check if a string is null, empty or white-space only.
             </summary>
         </member>
-        <member name="M:AndiSoft.Utilities.Extensions.StringExtension.ToJson(System.Object)">
+        <member name="M:AndiSoft.Utilities.Extensions.StringExtension.ToDateTime(System.String,System.String)">
             <summary>
-            Converts object to a Json string.
+            Converts string to DateTime
             </summary>
-            <param name="objeto"></param>
+            <param name="date"></param>
+            <param name="format">Date format. Default: dd/MM/yyyy</param>
             <returns></returns>
         </member>
         <member name="M:AndiSoft.Utilities.Extensions.StringExtension.RemoveAccents(System.String)">
@@ -224,41 +404,6 @@
             <summary>
             Remove all chars that are not letters or numbers
             </summary>
-        </member>
-        <member name="T:AndiSoft.Utilities.Helper">
-            <summary>
-            Some helpers to treat string and other data
-            </summary>
-        </member>
-        <member name="M:AndiSoft.Utilities.Helper.GetNumbersOnly(System.String)">
-            <summary>
-            Returns only numbers of a tring
-            </summary>
-            <param name="text"></param>
-            <returns></returns>
-        </member>
-        <member name="M:AndiSoft.Utilities.Helper.GetLettersOnly(System.String)">
-            <summary>
-            Returns only letters of a tring
-            </summary>
-            <param name="text"></param>
-            <returns></returns>
-        </member>
-        <member name="M:AndiSoft.Utilities.Helper.GetLettersAndNumbers(System.String)">
-            <summary>
-            Returns only letter or numbers of a tring
-            </summary>
-            <param name="text"></param>
-            <returns></returns>
-        </member>
-        <member name="M:AndiSoft.Utilities.Helper.GetMobileNumber(System.String)">
-            <summary>
-            For brazilian phone numbers. Returns a valid phone number if possible.
-            If the given string cannot be parsed to a valid phone number, returns null.
-            If phone is a mobile number (starts with 8 or 9), and has 8 digits apart from the area code, the leading 9 will be inserted.
-            </summary>
-            <param name="phone"></param>
-            <returns></returns>
         </member>
         <member name="T:AndiSoft.Utilities.PasswordGenerator">
             <summary>
@@ -285,60 +430,6 @@
             </summary>
             <param name="size">Quantidade de caracteres.</param>
             <returns>Senha aleatória</returns>
-        </member>
-        <member name="M:AndiSoft.Utilities.Validations.IsNumberOnly(System.String)">
-            <summary>
-            Checks if a given string contains only number. If any char is not numeric, the return is false.
-            </summary>
-        </member>
-        <!-- Badly formed XML comment ignored for member "M:AndiSoft.Utilities.Validations.IsStrongPassword(System.String)" -->
-        <member name="M:AndiSoft.Utilities.Validations.IsValidCpf(System.String)">
-            <summary>
-            Verifies if the given string is a valid CPF.
-            </summary>
-            <param name="cpf"></param>
-            <returns></returns>
-        </member>
-        <member name="M:AndiSoft.Utilities.Validations.IsValidCnpj(System.String)">
-            <summary>
-            Verifies if the given string is a valid CNPJ
-            </summary>
-            <param name="cnpj"></param>
-            <returns></returns>
-        </member>
-        <member name="M:AndiSoft.Utilities.Validations.IsValidEmail(System.String)">
-            <summary>
-            Check if the given string is a valid email address
-            </summary>
-        </member>
-        <member name="M:AndiSoft.Utilities.Validations.IsValidDate(System.String)">
-            <summary>
-            Check if given string is a valid date
-            </summary>
-            <param name="data">Date (dd/MM/yyyy)</param>
-            <returns></returns>
-        </member>
-        <member name="M:AndiSoft.Utilities.Validations.IsValidDate(System.String,System.String)">
-            <summary>
-            Check if given string is a valid date
-            </summary>
-            <param name="date">Date (dd/MM/yyyy)</param>
-            <param name="format">Date fomart. Ex.:dd/MM/yyyy</param>
-            <returns></returns>
-        </member>
-        <member name="M:AndiSoft.Utilities.Validations.IsValidMobileNumber(System.String)">
-            <summary>
-            Check if given string is a valid mobile number
-            </summary>
-            <param name="phone"></param>
-            <returns></returns>
-        </member>
-        <member name="M:AndiSoft.Utilities.Validations.IsValidMobileNumber(System.String@)">
-            <summary>
-            Check if given string is a valid mobile number and removes special characters
-            </summary>
-            <param name="phone"></param>
-            <returns></returns>
         </member>
     </members>
 </doc>

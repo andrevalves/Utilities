@@ -1,8 +1,7 @@
 ﻿using System;
-using System.ComponentModel;
+using System.Globalization;
 using System.Linq;
 using System.Text.RegularExpressions;
-using AndiSoft.Utilities.Converters;
 
 namespace AndiSoft.Utilities.Extensions
 {
@@ -100,13 +99,14 @@ namespace AndiSoft.Utilities.Extensions
         }
 
         /// <summary>
-        /// Converts object to a Json string.
+        /// Converts string to DateTime
         /// </summary>
-        /// <param name="objeto"></param>
+        /// <param name="date"></param>
+        /// <param name="format">Date format. Default: dd/MM/yyyy</param>
         /// <returns></returns>
-        public static string ToJson(this object objeto)
+        public static DateTime ToDateTime(this string date, string format = "dd/MM/yyyy")
         {
-            return JsonParser.ParseObject(objeto);
+            return DateTime.ParseExact(date, format, CultureInfo.InvariantCulture);
         }
 
         /// <summary>

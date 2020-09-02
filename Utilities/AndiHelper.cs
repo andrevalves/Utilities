@@ -1,11 +1,12 @@
 ﻿using System.Linq;
+using AndiSoft.Utilities.Extensions;
 
 namespace AndiSoft.Utilities
 {
     /// <summary>
     /// Some helpers to treat string and other data
     /// </summary>
-    public static class Helper
+    public static class AndiHelper
     {
         /// <summary>
         /// Returns only numbers of a tring
@@ -14,6 +15,8 @@ namespace AndiSoft.Utilities
         /// <returns></returns>
         public static string GetNumbersOnly(string text)
         {
+            if (text.IsNullOrEmpty()) return string.Empty;
+            
             return new string(text.Where(char.IsDigit).ToArray());
         }
 
@@ -24,6 +27,7 @@ namespace AndiSoft.Utilities
         /// <returns></returns>
         public static string GetLettersOnly(string text)
         {
+            if (text.IsNullOrEmpty()) return string.Empty;
             return new string(text.Where(char.IsLetter).ToArray());
         }
 
@@ -34,6 +38,7 @@ namespace AndiSoft.Utilities
         /// <returns></returns>
         public static string GetLettersAndNumbers(string text)
         {
+            if (text.IsNullOrEmpty()) return string.Empty;
             return new string(text.Where(char.IsLetterOrDigit).ToArray());
         }
 
@@ -48,10 +53,8 @@ namespace AndiSoft.Utilities
         {
             phone = GetNumbersOnly(phone);
 
-            if (string.IsNullOrEmpty(phone))
-            {
-                return "";
-            }
+            if (phone.IsNullOrEmpty()) return string.Empty;
+
 
             // Se inicia com 0 (ex: 051), remove o 0
             if (phone.Substring(0, 1).Equals("0"))

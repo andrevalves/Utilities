@@ -3,7 +3,7 @@
     /// <summary>
     /// Number Converter
     /// </summary>
-    public static class ConvertNumber
+    internal static class ConvertNumber
     {
         ///<summary>
         ///Returns a float number. Returns 0 if the string is not a valid number.

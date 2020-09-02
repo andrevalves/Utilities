@@ -6,7 +6,7 @@ namespace AndiSoft.Utilities.Converters
     /// Converts object types.
     /// </summary>
     /// <typeparam name="T">Destination type for the conversion.</typeparam>
-    public class GenericsConverter<T>
+    internal class GenericsConverter<T>
     {
         /// <summary>
         /// Converts the object to the given type.

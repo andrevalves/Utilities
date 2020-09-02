@@ -2,16 +2,19 @@
 using System.Linq;
 using System.Net.Mail;
 using System.Text.RegularExpressions;
+using AndiSoft.Utilities.Extensions;
 
 namespace AndiSoft.Utilities
 {
-    public static class Validations
+    public static class AndiValidation
     {
         ///<summary>
         ///Checks if a given string contains only number. If any char is not numeric, the return is false.
         ///</summary>
-        public static bool IsNumberOnly(this string text)
+        public static bool IsNumberOnly(string text)
         {
+            if (text.IsNullOrEmpty()) return false;
+
             return text.All(c => c >= '0' && c <= '9');
         }
 
@@ -26,6 +29,8 @@ namespace AndiSoft.Utilities
         /// <returns>True if password is strong</returns>
         public static bool IsStrongPassword(string password)
         {
+            if (password.IsNullOrEmpty()) return false;
+
             var rgx = new Regex(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
             return rgx.IsMatch(password);
         }
@@ -37,6 +42,8 @@ namespace AndiSoft.Utilities
         /// <returns></returns>
         public static bool IsValidCpf(string cpf)
         {
+            if (cpf.IsNullOrEmpty()) return false;
+
             var mt1 = new int[9] { 10, 9, 8, 7, 6, 5, 4, 3, 2 };
             var mt2 = new int[10] { 11, 10, 9, 8, 7, 6, 5, 4, 3, 2 };
 
@@ -82,6 +89,8 @@ namespace AndiSoft.Utilities
         /// <returns></returns>
         public static bool IsValidCnpj(string cnpj)
         {
+            if (cnpj.IsNullOrEmpty()) return false;
+
             int[] multiplicador1 = new int[12] { 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };
             int[] multiplicador2 = new int[13] { 6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };
             int soma;
@@ -151,19 +160,19 @@ namespace AndiSoft.Utilities
         /// <summary>
         /// Check if given string is a valid date
         /// </summary>
-        /// <param name="data">Date (dd/MM/yyyy)</param>
+        /// <param name="date">Date (dd/MM/yyyy)</param>
         /// <returns></returns>
-        public static bool IsValidDate(string data)
+        public static bool IsValidDate(string date)
         {
             try
             {
                 const string pattern = @"(0[1-9]|[1-2][0-9]|3[0-1])/(0[1-9]|1[0-2])/[0-9]{4}";
                 var rx = new Regex(pattern, RegexOptions.Compiled | RegexOptions.IgnoreCase);
 
-                if (!rx.Match(data).Success)
+                if (!rx.Match(date).Success)
                     return false;
                 
-                Convert.ToDateTime(data);
+                Convert.ToDateTime(date);
             }
             catch
             {
@@ -176,8 +185,8 @@ namespace AndiSoft.Utilities
         /// <summary>
         /// Check if given string is a valid date
         /// </summary>
-        /// <param name="date">Date (dd/MM/yyyy)</param>
-        /// <param name="format">Date fomart. Ex.:dd/MM/yyyy</param>
+        /// <param name="date">Date string</param>
+        /// <param name="format">Date format. Default: dd/MM/yyyy</param>
         /// <returns></returns>
         public static bool IsValidDate(string date, string format)
         {
@@ -223,6 +232,8 @@ namespace AndiSoft.Utilities
         /// <returns></returns>
         public static bool IsValidMobileNumber(string phone)
         {
+            if (phone.IsNullOrEmpty()) return false;
+
             var pattern = @"^[1-9]{2}9[1-9][0-9]{7}$";
             var rx = new Regex(pattern, RegexOptions.Compiled | RegexOptions.IgnoreCase);
 
@@ -236,7 +247,9 @@ namespace AndiSoft.Utilities
         /// <returns></returns>
         public static bool IsValidMobileNumber(ref string phone)
         {
-            phone = Helper.GetMobileNumber(phone);
+            if (phone.IsNullOrEmpty()) return false;
+
+            phone = AndiHelper.GetMobileNumber(phone);
 
             var pattern = @"^[1-9]{2}9[1-9][0-9]{7}$";
             var rx = new Regex(pattern, RegexOptions.Compiled | RegexOptions.IgnoreCase);

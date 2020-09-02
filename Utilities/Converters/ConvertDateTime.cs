@@ -3,21 +3,25 @@ using System.Globalization;
 
 namespace AndiSoft.Utilities.Converters
 {
-    public static class ConvertDateTime
+    /// <summary>
+    /// DateTime Converter
+    /// </summary>
+    internal static class ConvertDateTime
     {
         ///<sumary>
         ///Transform string into dateTime. Returns null if parse is not successful
         ///</sumary>
-        public static DateTime? ToDateTime(this string text, string format = "dd/MM/yyyy")
+        public static bool TryParse(string date, out DateTime dateTime, string format = "dd/MM/yyyy")
         {
             try
             {
-                var dateTime = DateTime.ParseExact(text, format, CultureInfo.InvariantCulture);
-                return dateTime;
+                dateTime = DateTime.ParseExact(date, format, CultureInfo.InvariantCulture);
+                return true;
             }
-            catch (Exception)
+            catch
             {
-                return null;
+                dateTime = new DateTime();
+                return false;
             }
         }
     }

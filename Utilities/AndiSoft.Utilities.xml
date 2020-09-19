@@ -194,19 +194,21 @@
             Converts objects to Json
             </summary>
         </member>
-        <member name="M:AndiSoft.Utilities.Converters.JsonParser.ToJson(System.Object,System.Boolean)">
+        <member name="M:AndiSoft.Utilities.Converters.JsonParser.ToJson(System.Object,System.Boolean,System.Boolean)">
             <summary>
             Converts object to a Json string.
             </summary>
             <param name="obj"></param>
+            <param name="identJson">Ident json result.</param>
             <param name="ignoreNullValues"></param>
             <returns></returns>
         </member>
-        <member name="M:AndiSoft.Utilities.Converters.JsonParser.ParseObject(System.Object,System.Boolean)">
+        <member name="M:AndiSoft.Utilities.Converters.JsonParser.ParseObject(System.Object,System.Boolean,System.Boolean)">
             <summary>
             Converts objects to Json string.
             </summary>
             <param name="obj">Object to be serialized.</param>
+            <param name="identJson">Ident json result.</param>
             <param name="ignoreNullValues">If true, null values will not be included in the Json string. Default is false.</param>
             <returns></returns>
         </member>
@@ -319,12 +321,18 @@
             <param name="input"></param>
             <returns></returns>
         </member>
-        <member name="M:AndiSoft.Utilities.Extensions.JsonExtension.ToJson(System.Object,System.Boolean)">
+        <member name="T:AndiSoft.Utilities.Extensions.JsonExtension">
+            <summary>
+            Json Extension methods
+            </summary>
+        </member>
+        <member name="M:AndiSoft.Utilities.Extensions.JsonExtension.ToJson(System.Object,System.Boolean,System.Boolean)">
             <summary>
             Converts object to a Json string.
             </summary>
-            <param name="obj"></param>
-            <param name="ignoreNullValues"></param>
+            <param name="obj">Object to be converted</param>
+            <param name="identJson">Wether the json should be identted</param>
+            <param name="ignoreNullValues">If true, null objects will not be present</param>
             <returns></returns>
         </member>
         <member name="M:AndiSoft.Utilities.Extensions.ListExtension.AnyEqualElement``1(System.Collections.Generic.List{``0},System.Collections.Generic.List{``0})">

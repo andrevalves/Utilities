@@ -12,20 +12,22 @@ namespace AndiSoft.Utilities.Converters
         /// Converts object to a Json string.
         /// </summary>
         /// <param name="obj"></param>
+        /// <param name="identJson">Ident json result.</param>
         /// <param name="ignoreNullValues"></param>
         /// <returns></returns>
-        public static string ToJson(this object obj, bool ignoreNullValues = false)
+        internal static string ToJson(object obj, bool identJson = false, bool ignoreNullValues = false)
         {
-            return ParseObject(obj, ignoreNullValues);
+            return ParseObject(obj, identJson, ignoreNullValues);
         }
 
         /// <summary>
         /// Converts objects to Json string.
         /// </summary>
         /// <param name="obj">Object to be serialized.</param>
+        /// <param name="identJson">Ident json result.</param>
         /// <param name="ignoreNullValues">If true, null values will not be included in the Json string. Default is false.</param>
         /// <returns></returns>
-        public static string ParseObject(object obj, bool ignoreNullValues = false)
+        public static string ParseObject(object obj, bool identJson = false, bool ignoreNullValues = false)
         {
             var jsonSettings = new JsonSerializerSettings
             {
@@ -33,7 +35,9 @@ namespace AndiSoft.Utilities.Converters
                 NullValueHandling = ignoreNullValues ? NullValueHandling.Ignore : NullValueHandling.Include
             };
 
-            return JsonConvert.SerializeObject(obj, jsonSettings);
+            var ident = identJson ? Formatting.Indented : Formatting.None;
+
+            return JsonConvert.SerializeObject(obj, ident, jsonSettings);
         }
         
         /// <summary>

@@ -79,6 +79,18 @@
             <param name="phone"></param>
             <returns></returns>
         </member>
+        <member name="T:AndiSoft.Utilities.AndiUtils">
+            <summary>
+            Other useful functions
+            </summary>
+        </member>
+        <member name="M:AndiSoft.Utilities.AndiUtils.ReadTextFile(System.String)">
+            <summary>
+            Reads a text file to a string
+            </summary>
+            <param name="filePath">File path</param>
+            <returns></returns>
+        </member>
         <member name="M:AndiSoft.Utilities.AndiValidation.IsNumberOnly(System.String)">
             <summary>
             Checks if a given string contains only number. If any char is not numeric, the return is false.
@@ -202,6 +214,28 @@
             <param name="identJson">Ident json result.</param>
             <param name="ignoreNullValues"></param>
             <returns></returns>
+        </member>
+        <member name="M:AndiSoft.Utilities.Converters.JsonParser.MinifyJson(System.String)">
+            <summary>
+            Converts Json string to a minified version
+            </summary>
+            <param name="json">Json string to be minified</param>
+            <returns></returns>
+        </member>
+        <member name="M:AndiSoft.Utilities.Converters.JsonParser.BeautifyJson(System.String)">
+            <summary>
+            Converts Json string to a pretty version
+            </summary>
+            <param name="json">Json string to be beautified</param>
+            <returns></returns>
+        </member>
+        <member name="M:AndiSoft.Utilities.Converters.JsonParser.JsonFromFile``1(System.String)">
+            <summary>
+            Read object from a json file
+            </summary>
+            <param name="filePath">File path</param>
+            <typeparam name="T">Target object</typeparam>
+            <returns>Result object</returns>
         </member>
         <member name="M:AndiSoft.Utilities.Converters.JsonParser.ParseObject(System.Object,System.Boolean,System.Boolean)">
             <summary>

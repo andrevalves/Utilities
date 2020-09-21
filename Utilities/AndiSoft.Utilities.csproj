@@ -3,7 +3,8 @@
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;netstandard2.1;netcoreapp3.1;net451;net462</TargetFrameworks>
     <Authors>André Alves</Authors>
-    <Description>This packge contains some useful tools such as:
+    <Description>
+      This packge contains some useful tools such as:
   - String Extensions
   - Date Extensions (new)
   - List Extensions
@@ -13,16 +14,18 @@
   - Json serializer and converter
   - Password generator
   - Validations
-  - Helpers (new)</Description>
+  - Helpers 
+  - Read text from file (new)
+  - Read json objects from file (new)
+    </Description>
     <Copyright>AndiSoft</Copyright>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageTags>string list enum extensions validations json serializers converters</PackageTags>
     <Product>Utilities</Product>
     <PackageProjectUrl>https://github.com/andrevalves/Utilities</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Version>1.1.0</Version>
-    <PackageReleaseNotes>Fixed ambiguous GetEnumDescription call
-Date extension</PackageReleaseNotes>
+    <Version>1.1.1</Version>
+    <PackageReleaseNotes>Added more json utilities</PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)'=='Debug'">

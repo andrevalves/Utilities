@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using System.IO;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
 namespace AndiSoft.Utilities.Converters
@@ -18,6 +19,40 @@ namespace AndiSoft.Utilities.Converters
         internal static string ToJson(object obj, bool identJson = false, bool ignoreNullValues = false)
         {
             return ParseObject(obj, identJson, ignoreNullValues);
+        }
+
+        /// <summary>
+        /// Converts Json string to a minified version
+        /// </summary>
+        /// <param name="json">Json string to be minified</param>
+        /// <returns></returns>
+        public static string MinifyJson(string json)
+        {
+            var obj = JsonConvert.DeserializeObject(json);
+            return JsonConvert.SerializeObject(obj);
+        }
+
+        /// <summary>
+        /// Converts Json string to a pretty version
+        /// </summary>
+        /// <param name="json">Json string to be beautified</param>
+        /// <returns></returns>
+        public static string BeautifyJson(string json)
+        {
+            var obj = JsonConvert.DeserializeObject(json);
+            return JsonConvert.SerializeObject(obj, Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Read object from a json file
+        /// </summary>
+        /// <param name="filePath">File path</param>
+        /// <typeparam name="T">Target object</typeparam>
+        /// <returns>Result object</returns>
+        public static T JsonFromFile<T>(string filePath)
+        {
+            var json = File.ReadAllText(filePath);
+            return ParseJson<T>(json);
         }
 
         /// <summary>

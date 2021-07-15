@@ -24,7 +24,7 @@
     <Product>Utilities</Product>
     <PackageProjectUrl>https://github.com/andrevalves/Utilities</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Version>1.1.1</Version>
+    <Version>1.1.2</Version>
     <PackageReleaseNotes>Added more json utilities</PackageReleaseNotes>
   </PropertyGroup>
 
@@ -43,6 +43,10 @@
     <Compile Remove="Http\**" />
     <EmbeddedResource Remove="Http\**" />
     <None Remove="Http\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="AndiSoft.Utilities.xml" />
   </ItemGroup>
 
   <ItemGroup>

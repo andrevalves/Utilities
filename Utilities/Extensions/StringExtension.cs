@@ -10,17 +10,17 @@ namespace AndiSoft.Utilities.Extensions
     /// </summary>
     public static class StringExtension
     {
-        private static readonly string[] Preposicoes = { "e", "de", "da", "das", "do", "dos", "com", "na", "nas", "no", "nos" };
+        private static readonly string[] Preposicoes = {"e", "de", "da", "das", "do", "dos", "com", "na", "nas", "no", "nos"};
 
         private const string ComAcentos = "ÄÅÁÂÀÃäáâàãÉÊËÈéêëèÍÎÏÌíîïìÖÓÔÒÕöóôòõÜÚÛüúûùÇç";
         private const string SemAcentos = "AAAAAAaaaaaEEEEeeeeIIIIiiiiOOOOOoooooUUUuuuuCc";
-        
+
         ///<summary>
         ///Converts the first char of a string to UpperCase
         ///</summary>
         public static string Capitalize(this string text)
         {
-            if (text.IsNullOrEmpty()) return "";
+            if (text.IsNullOrEmpty()) return text;
             if (text.Length == 1) return text.ToUpper();
             var fisrtLetter = text[0].ToString().ToUpper();
             var otherLetters = text.Substring(1).ToLower();
@@ -38,13 +38,11 @@ namespace AndiSoft.Utilities.Extensions
             var sentence = "";
             var words = text.Split(' ');
             foreach (var word in words)
-            {
                 if (wordsUpperCase != null && wordsUpperCase.ContainsCaseIgnored(word))
                     sentence += word.ToUpper() + " ";
                 else if (wordsLowerCase != null && wordsLowerCase.ContainsCaseIgnored(word))
                     sentence += word.ToLower() + " ";
                 else sentence += word.Capitalize() + " ";
-            }
             return sentence.TrimEnd();
         }
 
@@ -57,14 +55,17 @@ namespace AndiSoft.Utilities.Extensions
         {
             if (text.IsNullOrEmpty()) return text;
             if (wordsLowerCase == null)
+            {
                 wordsLowerCase = Preposicoes;
+            }
             else
             {
                 var wordsLowerCaseList = wordsLowerCase.ToList();
                 wordsLowerCaseList.AddRange(Preposicoes);
                 wordsLowerCase = wordsLowerCaseList.ToArray();
             }
-            return text.CapitalizeSentence(wordsLowerCase: wordsLowerCase, wordsUpperCase: wordsUpperCase);
+
+            return text.CapitalizeSentence(wordsLowerCase, wordsUpperCase);
         }
 
         ///<summary>
@@ -78,7 +79,8 @@ namespace AndiSoft.Utilities.Extensions
         ///<summary>
         ///Check if the string contains a given string. It is not case-sensitive
         ///</summary>
-        public static bool ContainsCaseIgnored(this string text, string value) {
+        public static bool ContainsCaseIgnored(this string text, string value)
+        {
             return text.ToUpper().Contains(value.ToUpper());
         }
 
@@ -116,20 +118,23 @@ namespace AndiSoft.Utilities.Extensions
         /// <returns></returns>
         public static string RemoveAccents(this string text)
         {
-            for (var i = 0; i < ComAcentos.Length; i++)
-            {
-                text = text.Replace(ComAcentos[i].ToString(), SemAcentos[i].ToString());
-            }
+            if (text.IsNullOrEmpty())
+                return text;
+
+            for (var i = 0; i < ComAcentos.Length; i++) text = text.Replace(ComAcentos[i].ToString(), SemAcentos[i].ToString());
             return text;
         }
 
         ///<summary>
         ///Remove all chars that are not letters or numbers
         ///</summary>
-        public static string RemoveSpecialCharacters(this string text) 
+        public static string RemoveSpecialCharacters(this string text)
         {
+            if (text.IsNullOrEmpty())
+                return text;
+
             var rgx = new Regex("[^a-zA-Z0-9 -]");
-            return rgx.Replace(text, ""); 
+            return rgx.Replace(text, "");
         }
     }
 }

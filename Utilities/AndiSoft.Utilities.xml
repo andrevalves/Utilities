@@ -4,6 +4,11 @@
         <name>AndiSoft.Utilities</name>
     </assembly>
     <members>
+        <member name="T:AndiSoft.Utilities.AndiConvert">
+            <summary>
+            Useful Conversions
+            </summary>
+        </member>
         <member name="M:AndiSoft.Utilities.AndiConvert.TryParse(System.String,System.DateTime@,System.String)">
             <sumary>
             Transform string into dateTime. Returns null if parse is not successful
@@ -51,7 +56,7 @@
         </member>
         <member name="M:AndiSoft.Utilities.AndiHelper.GetNumbersOnly(System.String)">
             <summary>
-            Returns only numbers of a tring
+            Returns only numbers of a string
             </summary>
             <param name="text"></param>
             <returns></returns>
@@ -90,6 +95,11 @@
             </summary>
             <param name="filePath">File path</param>
             <returns></returns>
+        </member>
+        <member name="T:AndiSoft.Utilities.AndiValidation">
+            <summary>
+            
+            </summary>
         </member>
         <member name="M:AndiSoft.Utilities.AndiValidation.IsNumberOnly(System.String)">
             <summary>
@@ -133,7 +143,7 @@
         </member>
         <member name="M:AndiSoft.Utilities.AndiValidation.IsValidMobileNumber(System.String)">
             <summary>
-            Check if given string is a valid mobile number
+            Check if given string is a valid mobile number in Brazil
             </summary>
             <param name="phone"></param>
             <returns></returns>
@@ -199,7 +209,7 @@
             </summary>
             <param name="obj">Object to be parsed.</param>
             <param name="newObj">New parsed object.</param>
-            <returns>True if sucessful. False otherwise.</returns>
+            <returns>True if successful. False otherwise.</returns>
         </member>
         <member name="T:AndiSoft.Utilities.Converters.JsonParser">
             <summary>
@@ -259,8 +269,8 @@
             </summary>
             <param name="obj">Object to be parsed.</param>
             <param name="jsonString">New parsed object.</param>
-            <param name="ignoreNullValues">If true, null values will not be included in the Json string. Default is true.</param>
-            <returns>True if sucessful. False otherwise.</returns>
+            <param name="ignoreNullValues">If true, null values will not be included in the Json string. Default is false.</param>
+            <returns>True if successful. False otherwise.</returns>
         </member>
         <member name="M:AndiSoft.Utilities.Converters.JsonParser.TryParse``1(System.String,``0@)">
             <summary>
@@ -269,6 +279,11 @@
             <param name="jsonString">Object to be parsed.</param>
             <param name="obj">New parsed object.</param>
             <returns>True if sucessful. False otherwise.</returns>
+        </member>
+        <member name="T:AndiSoft.Utilities.CustomExceptions.BaseException">
+            <summary>
+            Base class for custom exceptions. Adds a Type description to the exception.
+            </summary>
         </member>
         <member name="T:AndiSoft.Utilities.Extensions.DateTimeExtension">
             <summary>
@@ -365,7 +380,7 @@
             Converts object to a Json string.
             </summary>
             <param name="obj">Object to be converted</param>
-            <param name="identJson">Wether the json should be identted</param>
+            <param name="identJson">Whether the json should be indented</param>
             <param name="ignoreNullValues">If true, null objects will not be present</param>
             <returns></returns>
         </member>

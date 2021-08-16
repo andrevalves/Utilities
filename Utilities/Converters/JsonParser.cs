@@ -1,6 +1,5 @@
 ﻿using System.IO;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
+using System.Text.Json;
 
 namespace AndiSoft.Utilities.Converters
 {
@@ -28,8 +27,8 @@ namespace AndiSoft.Utilities.Converters
         /// <returns></returns>
         public static string MinifyJson(string json)
         {
-            var obj = JsonConvert.DeserializeObject(json);
-            return JsonConvert.SerializeObject(obj);
+            var obj = ParseJson<object>(json);
+            return ParseObject(obj);
         }
 
         /// <summary>
@@ -39,8 +38,8 @@ namespace AndiSoft.Utilities.Converters
         /// <returns></returns>
         public static string BeautifyJson(string json)
         {
-            var obj = JsonConvert.DeserializeObject(json);
-            return JsonConvert.SerializeObject(obj, Formatting.Indented);
+            var obj = ParseJson<object>(json);
+            return ParseObject(obj, true);
         }
 
         /// <summary>
@@ -64,17 +63,16 @@ namespace AndiSoft.Utilities.Converters
         /// <returns></returns>
         public static string ParseObject(object obj, bool identJson = false, bool ignoreNullValues = false)
         {
-            var jsonSettings = new JsonSerializerSettings
+            var jsonSettings = new JsonSerializerOptions()
             {
-                ContractResolver = new CamelCasePropertyNamesContractResolver(),
-                NullValueHandling = ignoreNullValues ? NullValueHandling.Ignore : NullValueHandling.Include
+                WriteIndented = identJson,
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                IgnoreNullValues = ignoreNullValues
             };
 
-            var ident = identJson ? Formatting.Indented : Formatting.None;
-
-            return JsonConvert.SerializeObject(obj, ident, jsonSettings);
+            return JsonSerializer.Serialize(obj, jsonSettings);
         }
-        
+
         /// <summary>
         /// Converts Json string to the specified object
         /// </summary>
@@ -82,7 +80,12 @@ namespace AndiSoft.Utilities.Converters
         /// <returns>Parsed object</returns>
         public static T ParseJson<T>(string jsonString)
         {
-            return JsonConvert.DeserializeObject<T>(jsonString);
+            var jsonSettings = new JsonSerializerOptions()
+            {
+                AllowTrailingCommas = true
+            };
+
+            return JsonSerializer.Deserialize<T>(jsonString, jsonSettings);
         }
 
         #region TryParse
@@ -92,19 +95,13 @@ namespace AndiSoft.Utilities.Converters
         /// </summary>
         /// <param name="obj">Object to be parsed.</param>
         /// <param name="jsonString">New parsed object.</param>
-        /// <param name="ignoreNullValues">If true, null values will not be included in the Json string. Default is true.</param>
-        /// <returns>True if sucessful. False otherwise.</returns>
-        public static bool TryParse(object obj, out string jsonString, bool ignoreNullValues = true)
+        /// <param name="ignoreNullValues">If true, null values will not be included in the Json string. Default is false.</param>
+        /// <returns>True if successful. False otherwise.</returns>
+        public static bool TryParse(object obj, out string jsonString, bool ignoreNullValues = false)
         {
-            var jsonSettings = new JsonSerializerSettings
-            {
-                ContractResolver = new CamelCasePropertyNamesContractResolver(),
-                NullValueHandling = ignoreNullValues ? NullValueHandling.Ignore : NullValueHandling.Include
-            };
-
             try
             {
-                jsonString = JsonConvert.SerializeObject(obj, jsonSettings);
+                jsonString = ParseObject(obj, false, ignoreNullValues);
                 return true;
             }
             catch
@@ -124,12 +121,12 @@ namespace AndiSoft.Utilities.Converters
         {
             try
             {
-                obj = JsonConvert.DeserializeObject<T>(jsonString);
+                obj = ParseJson<T>(jsonString);
                 return true;
             }
             catch
             {
-                obj = JsonConvert.DeserializeObject<T>("{ }");
+                obj = ParseJson<T>("{ }");
                 return false;
             }
         }

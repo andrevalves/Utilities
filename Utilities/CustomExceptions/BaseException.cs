@@ -1,5 +1,8 @@
 ﻿namespace AndiSoft.Utilities.CustomExceptions
 {
+    /// <summary>
+    /// Base class for custom exceptions. Adds a Type description to the exception.
+    /// </summary>
     public class BaseException : System.Exception
     {
         public BaseException()

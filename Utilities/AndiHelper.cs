@@ -9,7 +9,7 @@ namespace AndiSoft.Utilities
     public static class AndiHelper
     {
         /// <summary>
-        /// Returns only numbers of a tring
+        /// Returns only numbers of a string
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>

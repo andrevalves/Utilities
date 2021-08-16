@@ -106,7 +106,7 @@ namespace AndiSoft.Utilities.Extensions
         /// <param name="date"></param>
         /// <param name="format">Date format. Default: dd/MM/yyyy</param>
         /// <returns></returns>
-        public static DateTime ToDateTime(this string date, string format = "dd/MM/yyyy")
+        public static DateTime ToDateTime(this string date, string format = "yyyy/MM/dd")
         {
             return DateTime.ParseExact(date, format, CultureInfo.InvariantCulture);
         }

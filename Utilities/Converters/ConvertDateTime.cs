@@ -11,7 +11,7 @@ namespace AndiSoft.Utilities.Converters
         ///<sumary>
         ///Transform string into dateTime. Returns null if parse is not successful
         ///</sumary>
-        public static bool TryParse(string date, out DateTime dateTime, string format = "dd/MM/yyyy")
+        public static bool TryParse(string date, out DateTime dateTime, string format = "yyyy/MM/dd")
         {
             try
             {

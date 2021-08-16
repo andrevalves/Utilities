@@ -11,7 +11,7 @@ namespace AndiSoft.Utilities.Extensions
         /// Converts object to a Json string.
         /// </summary>
         /// <param name="obj">Object to be converted</param>
-        /// <param name="identJson">Wether the json should be identted</param>
+        /// <param name="identJson">Whether the json should be indented</param>
         /// <param name="ignoreNullValues">If true, null objects will not be present</param>
         /// <returns></returns>
         public static string ToJson(this object obj, bool identJson = false, bool ignoreNullValues = false)

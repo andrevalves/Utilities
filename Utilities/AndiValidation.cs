@@ -6,6 +6,9 @@ using AndiSoft.Utilities.Extensions;
 
 namespace AndiSoft.Utilities
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public static class AndiValidation
     {
         ///<summary>
@@ -226,7 +229,7 @@ namespace AndiSoft.Utilities
         }
 
         /// <summary>
-        /// Check if given string is a valid mobile number
+        /// Check if given string is a valid mobile number in Brazil
         /// </summary>
         /// <param name="phone"></param>
         /// <returns></returns>

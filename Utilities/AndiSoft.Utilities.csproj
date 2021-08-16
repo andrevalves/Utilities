@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;netstandard2.1;netcoreapp3.1;net451;net462</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;netstandard2.1;net5;netcoreapp3.1;net462;</TargetFrameworks>
     <Authors>André Alves</Authors>
     <Description>
       This packge contains some useful tools such as:
@@ -11,9 +11,9 @@
   - Enum Extensions
   - Type Converters
   - Generics Conversion
-  - Json serializer and converter
+  - Json serializer and parser
   - Password generator
-  - Validations
+  - Validations (Date, Email, CPF, CNPJ and others)
   - Helpers 
   - Read text from file (new)
   - Read json objects from file (new)
@@ -24,7 +24,7 @@
     <Product>Utilities</Product>
     <PackageProjectUrl>https://github.com/andrevalves/Utilities</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Version>1.1.2</Version>
+    <Version>1.2.0</Version>
     <PackageReleaseNotes>Added more json utilities</PackageReleaseNotes>
   </PropertyGroup>
 
@@ -49,8 +49,34 @@
     <None Remove="AndiSoft.Utilities.xml" />
   </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+    <PackageReference Include="System.Text.Json">
+      <Version>4.7.2</Version>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.1'">
+    <PackageReference Include="System.Text.Json">
+      <Version>4.7.2</Version>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp3.1'">
+    <PackageReference Include="System.Text.Json">
+      <Version>4.7.2</Version>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net5'">
+    <PackageReference Include="System.Text.Json">
+      <Version>5.0.2</Version>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net462'">
+    <PackageReference Include="System.Text.Json">
+      <Version>4.7.2</Version>
+    </PackageReference>
   </ItemGroup>
 
 </Project>

@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Globalization;
-using Newtonsoft.Json;
+using System.Text.Json;
 
 namespace AndiSoft.Utilities
 {
+    /// <summary>
+    /// Useful Conversions
+    /// </summary>
     public class AndiConvert
     {
         ///<sumary>
@@ -84,8 +87,8 @@ namespace AndiSoft.Utilities
         /// <returns>New object of the given type.</returns>
         public static T Parse<T>(object obj)
         {
-            var json = JsonConvert.SerializeObject(obj);
-            return JsonConvert.DeserializeObject<T>(json);
+            var json = JsonSerializer.Serialize(obj);
+            return JsonSerializer.Deserialize<T>(json);
         }
 
         /// <summary>
@@ -98,12 +101,12 @@ namespace AndiSoft.Utilities
         {
             try
             {
-                var json = JsonConvert.SerializeObject(obj);
-                newObj = JsonConvert.DeserializeObject<T>(json);
+                var json = JsonSerializer.Serialize(obj);
+                newObj = JsonSerializer.Deserialize<T>(json);
             }
             catch
             {
-                newObj = JsonConvert.DeserializeObject<T>("{}");
+                newObj = JsonSerializer.Deserialize<T>("{}");
                 return false;
             }
 

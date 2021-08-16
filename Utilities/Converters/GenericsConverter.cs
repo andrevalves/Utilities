@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json;
 
 namespace AndiSoft.Utilities.Converters
 {
@@ -15,8 +15,8 @@ namespace AndiSoft.Utilities.Converters
         /// <returns>New object of the given type.</returns>
         public static T Convert(object obj)
         {
-            var json = JsonConvert.SerializeObject(obj);
-            return JsonConvert.DeserializeObject<T>(json);
+            var json = JsonSerializer.Serialize(obj);
+            return JsonSerializer.Deserialize<T>(json);
         }
 
         /// <summary>
@@ -24,17 +24,17 @@ namespace AndiSoft.Utilities.Converters
         /// </summary>
         /// <param name="obj">Object to be parsed.</param>
         /// <param name="newObj">New parsed object.</param>
-        /// <returns>True if sucessful. False otherwise.</returns>
+        /// <returns>True if successful. False otherwise.</returns>
         public static bool TryParse(object obj, out T newObj)
         {
             try
             {
-                var json = JsonConvert.SerializeObject(obj);
-                newObj = JsonConvert.DeserializeObject<T>(json);
+                var json = JsonSerializer.Serialize(obj);
+                newObj = JsonSerializer.Deserialize<T>(json);
             }
             catch
             {
-                newObj = JsonConvert.DeserializeObject<T>("{}");
+                newObj = JsonSerializer.Deserialize<T>("{}");
                 return false;
             }
 

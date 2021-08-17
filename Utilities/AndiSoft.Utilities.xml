@@ -211,75 +211,6 @@
             <param name="newObj">New parsed object.</param>
             <returns>True if successful. False otherwise.</returns>
         </member>
-        <member name="T:AndiSoft.Utilities.Converters.JsonParser">
-            <summary>
-            Converts objects to Json
-            </summary>
-        </member>
-        <member name="M:AndiSoft.Utilities.Converters.JsonParser.ToJson(System.Object,System.Boolean,System.Boolean)">
-            <summary>
-            Converts object to a Json string.
-            </summary>
-            <param name="obj"></param>
-            <param name="identJson">Ident json result.</param>
-            <param name="ignoreNullValues"></param>
-            <returns></returns>
-        </member>
-        <member name="M:AndiSoft.Utilities.Converters.JsonParser.MinifyJson(System.String)">
-            <summary>
-            Converts Json string to a minified version
-            </summary>
-            <param name="json">Json string to be minified</param>
-            <returns></returns>
-        </member>
-        <member name="M:AndiSoft.Utilities.Converters.JsonParser.BeautifyJson(System.String)">
-            <summary>
-            Converts Json string to a pretty version
-            </summary>
-            <param name="json">Json string to be beautified</param>
-            <returns></returns>
-        </member>
-        <member name="M:AndiSoft.Utilities.Converters.JsonParser.JsonFromFile``1(System.String)">
-            <summary>
-            Read object from a json file
-            </summary>
-            <param name="filePath">File path</param>
-            <typeparam name="T">Target object</typeparam>
-            <returns>Result object</returns>
-        </member>
-        <member name="M:AndiSoft.Utilities.Converters.JsonParser.ParseObject(System.Object,System.Boolean,System.Boolean)">
-            <summary>
-            Converts objects to Json string.
-            </summary>
-            <param name="obj">Object to be serialized.</param>
-            <param name="identJson">Ident json result.</param>
-            <param name="ignoreNullValues">If true, null values will not be included in the Json string. Default is false.</param>
-            <returns></returns>
-        </member>
-        <member name="M:AndiSoft.Utilities.Converters.JsonParser.ParseJson``1(System.String)">
-            <summary>
-            Converts Json string to the specified object
-            </summary>
-            <param name="jsonString">Json string</param>
-            <returns>Parsed object</returns>
-        </member>
-        <member name="M:AndiSoft.Utilities.Converters.JsonParser.TryParse(System.Object,System.String@,System.Boolean)">
-            <summary>
-            Try to parse object to the given type.
-            </summary>
-            <param name="obj">Object to be parsed.</param>
-            <param name="jsonString">New parsed object.</param>
-            <param name="ignoreNullValues">If true, null values will not be included in the Json string. Default is false.</param>
-            <returns>True if successful. False otherwise.</returns>
-        </member>
-        <member name="M:AndiSoft.Utilities.Converters.JsonParser.TryParse``1(System.String,``0@)">
-            <summary>
-            Try to parse object to the given type.
-            </summary>
-            <param name="jsonString">Object to be parsed.</param>
-            <param name="obj">New parsed object.</param>
-            <returns>True if sucessful. False otherwise.</returns>
-        </member>
         <member name="T:AndiSoft.Utilities.CustomExceptions.BaseException">
             <summary>
             Base class for custom exceptions. Adds a Type description to the exception.
@@ -461,6 +392,75 @@
             <summary>
             Remove all chars that are not letters or numbers
             </summary>
+        </member>
+        <member name="T:AndiSoft.Utilities.JsonParser">
+            <summary>
+            Converts objects to Json
+            </summary>
+        </member>
+        <member name="M:AndiSoft.Utilities.JsonParser.ToJson(System.Object,System.Boolean,System.Boolean)">
+            <summary>
+            Converts object to a Json string.
+            </summary>
+            <param name="obj"></param>
+            <param name="identJson">Ident json result.</param>
+            <param name="ignoreNullValues"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AndiSoft.Utilities.JsonParser.MinifyJson(System.String)">
+            <summary>
+            Converts Json string to a minified version
+            </summary>
+            <param name="json">Json string to be minified</param>
+            <returns></returns>
+        </member>
+        <member name="M:AndiSoft.Utilities.JsonParser.BeautifyJson(System.String)">
+            <summary>
+            Converts Json string to a pretty version
+            </summary>
+            <param name="json">Json string to be beautified</param>
+            <returns></returns>
+        </member>
+        <member name="M:AndiSoft.Utilities.JsonParser.JsonFromFile``1(System.String)">
+            <summary>
+            Read object from a json file
+            </summary>
+            <param name="filePath">File path</param>
+            <typeparam name="T">Target object</typeparam>
+            <returns>Result object</returns>
+        </member>
+        <member name="M:AndiSoft.Utilities.JsonParser.ParseObject(System.Object,System.Boolean,System.Boolean)">
+            <summary>
+            Converts objects to Json string.
+            </summary>
+            <param name="obj">Object to be serialized.</param>
+            <param name="identJson">Ident json result.</param>
+            <param name="ignoreNullValues">If true, null values will not be included in the Json string. Default is false.</param>
+            <returns></returns>
+        </member>
+        <member name="M:AndiSoft.Utilities.JsonParser.ParseJson``1(System.String)">
+            <summary>
+            Converts Json string to the specified object
+            </summary>
+            <param name="jsonString">Json string</param>
+            <returns>Parsed object</returns>
+        </member>
+        <member name="M:AndiSoft.Utilities.JsonParser.TryParse(System.Object,System.String@,System.Boolean)">
+            <summary>
+            Try to parse object to the given type.
+            </summary>
+            <param name="obj">Object to be parsed.</param>
+            <param name="jsonString">New parsed object.</param>
+            <param name="ignoreNullValues">If true, null values will not be included in the Json string. Default is false.</param>
+            <returns>True if successful. False otherwise.</returns>
+        </member>
+        <member name="M:AndiSoft.Utilities.JsonParser.TryParse``1(System.String,``0@)">
+            <summary>
+            Try to parse object to the given type.
+            </summary>
+            <param name="jsonString">Object to be parsed.</param>
+            <param name="obj">New parsed object.</param>
+            <returns>True if sucessful. False otherwise.</returns>
         </member>
         <member name="T:AndiSoft.Utilities.PasswordGenerator">
             <summary>

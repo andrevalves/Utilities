@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System.Text.Json;
 
-namespace AndiSoft.Utilities.Converters
+namespace AndiSoft.Utilities
 {
     /// <summary>
     /// Converts objects to Json
@@ -82,6 +82,7 @@ namespace AndiSoft.Utilities.Converters
         {
             var jsonSettings = new JsonSerializerOptions()
             {
+                PropertyNameCaseInsensitive = true,
                 AllowTrailingCommas = true
             };
 

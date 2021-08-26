@@ -1,5 +1,7 @@
 ﻿using System.IO;
 using System.Text.Json;
+using System.Text.Json.Serialization;
+using AndiSoft.Utilities.Extensions;
 
 namespace AndiSoft.Utilities
 {
@@ -83,8 +85,10 @@ namespace AndiSoft.Utilities
             var jsonSettings = new JsonSerializerOptions()
             {
                 PropertyNameCaseInsensitive = true,
-                AllowTrailingCommas = true
+                AllowTrailingCommas = true,
+                NumberHandling = JsonNumberHandling.AllowReadingFromString
             };
+            jsonSettings.Converters.Add(new NumberToStringJsonConverter());
 
             return JsonSerializer.Deserialize<T>(jsonString, jsonSettings);
         }

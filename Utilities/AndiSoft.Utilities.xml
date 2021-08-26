@@ -329,6 +329,11 @@
             The <code>areEqualFunc</code> parameter is a function used to compare both elements.
             </summary>
         </member>
+        <member name="T:AndiSoft.Utilities.Extensions.NumberToStringJsonConverter">
+            <summary>
+            Converts number to string
+            </summary>
+        </member>
         <member name="T:AndiSoft.Utilities.Extensions.StringExtension">
             <summary>
             String Extensions

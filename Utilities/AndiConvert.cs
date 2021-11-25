@@ -87,6 +87,9 @@ namespace AndiSoft.Utilities
         /// <returns>New object of the given type.</returns>
         public static T Parse<T>(object obj)
         {
+            if (obj is string)
+                return JsonSerializer.Deserialize<T>(obj.ToString());
+
             var json = JsonSerializer.Serialize(obj);
             return JsonSerializer.Deserialize<T>(json);
         }
@@ -101,6 +104,9 @@ namespace AndiSoft.Utilities
         {
             try
             {
+                if (obj is string)
+                    newObj = JsonSerializer.Deserialize<T>(obj.ToString());
+
                 var json = JsonSerializer.Serialize(obj);
                 newObj = JsonSerializer.Deserialize<T>(json);
             }

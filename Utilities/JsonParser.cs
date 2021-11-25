@@ -121,7 +121,7 @@ namespace AndiSoft.Utilities
         /// </summary>
         /// <param name="jsonString">Object to be parsed.</param>
         /// <param name="obj">New parsed object.</param>
-        /// <returns>True if sucessful. False otherwise.</returns>
+        /// <returns>True if successful. False otherwise.</returns>
         public static bool TryParse<T>(string jsonString, out T obj)
         {
             try

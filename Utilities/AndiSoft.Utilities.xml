@@ -211,11 +211,6 @@
             <param name="newObj">New parsed object.</param>
             <returns>True if successful. False otherwise.</returns>
         </member>
-        <member name="T:AndiSoft.Utilities.CustomExceptions.BaseException">
-            <summary>
-            Base class for custom exceptions. Adds a Type description to the exception.
-            </summary>
-        </member>
         <member name="T:AndiSoft.Utilities.Extensions.DateTimeExtension">
             <summary>
             DateTime extension

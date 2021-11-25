@@ -6,7 +6,7 @@
     <Description>
       This packge contains some useful tools such as:
   - String Extensions
-  - Date Extensions (new)
+  - Date Extensions
   - List Extensions
   - Enum Extensions
   - Type Converters
@@ -17,15 +17,15 @@
   - Helpers 
   - Read text from file (new)
   - Read json objects from file (new)
-    </Description>
+</Description>
     <Copyright>AndiSoft</Copyright>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageTags>string list enum extensions validations json serializers converters</PackageTags>
     <Product>Utilities</Product>
     <PackageProjectUrl>https://github.com/andrevalves/Utilities</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Version>1.2.2</Version>
-    <PackageReleaseNotes>- Added number to string in json parser</PackageReleaseNotes>
+    <Version>1.2.3</Version>
+    <PackageReleaseNotes></PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)'=='Debug'">

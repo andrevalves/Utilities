@@ -83,7 +83,7 @@ namespace AndiSoft.Utilities.Extensions
 
         /// <summary>
         /// Check if a certain enum value contains the enum input. 
-        /// This can be usefull if the enum contains more than one value
+        /// This can be useful if the enum contains more than one value
         /// <para/>
         /// Example: 
         /// <code> 

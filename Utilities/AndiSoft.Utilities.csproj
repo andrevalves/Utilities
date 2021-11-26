@@ -9,6 +9,7 @@
   - Date Extensions
   - List Extensions
   - Enum Extensions
+  - Exception Extension (new)
   - Type Converters
   - Generics Conversion
   - Json serializer and parser
@@ -24,7 +25,7 @@
     <Product>Utilities</Product>
     <PackageProjectUrl>https://github.com/andrevalves/Utilities</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Version>1.2.3</Version>
+    <Version>1.2.4</Version>
     <PackageReleaseNotes></PackageReleaseNotes>
   </PropertyGroup>
 

@@ -280,7 +280,7 @@
         <member name="M:AndiSoft.Utilities.Extensions.EnumExtension.ContainsAll(System.Enum,System.Enum)">
             <summary>
             Check if a certain enum value contains the enum input. 
-            This can be usefull if the enum contains more than one value
+            This can be useful if the enum contains more than one value
             <para/>
             Example: 
             <code> 
@@ -294,6 +294,49 @@
             </summary>
             <param name="value"></param>
             <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="T:AndiSoft.Utilities.Extensions.ExceptionExtension">
+            <summary>
+            Extension methods for Exceptions
+            </summary>
+        </member>
+        <member name="M:AndiSoft.Utilities.Extensions.ExceptionExtension.SetExceptionGuid(System.Exception,System.String)">
+            <summary>
+            Saves GUID value to Data["GUID"].
+            </summary>
+            <param name="ex"></param>
+            <param name="guid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AndiSoft.Utilities.Extensions.ExceptionExtension.GetExceptionGuid(System.Exception)">
+            <summary>
+            Gets GUID value in Data["GUID"]. If no value is present, a new GUID is generated and saved in Data["GUID"].
+            </summary>
+            <param name="ex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AndiSoft.Utilities.Extensions.ExceptionExtension.SetErrorCode(System.Exception,System.String)">
+            <summary>
+            Saves the error code in Data["ErrorCode"].
+            </summary>
+            <param name="ex"></param>
+            <param name="code"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AndiSoft.Utilities.Extensions.ExceptionExtension.GetErrorCode(System.Exception)">
+            <summary>
+            Get error code in Data["ErrorCode"].
+            </summary>
+            <param name="ex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AndiSoft.Utilities.Extensions.ExceptionExtension.GetInnerExceptions(System.Exception,System.Boolean)">
+            <summary>
+            List inner exceptions of an exception
+            </summary>
+            <param name="exception"></param>
+            <param name="includeCurrent"></param>
             <returns></returns>
         </member>
         <member name="T:AndiSoft.Utilities.Extensions.JsonExtension">
@@ -322,11 +365,6 @@
             Checks whether two lists have at least one element in common.
             <para/>
             The <code>areEqualFunc</code> parameter is a function used to compare both elements.
-            </summary>
-        </member>
-        <member name="T:AndiSoft.Utilities.Extensions.NumberToStringJsonConverter">
-            <summary>
-            Converts number to string
             </summary>
         </member>
         <member name="T:AndiSoft.Utilities.Extensions.StringExtension">
@@ -391,6 +429,11 @@
         <member name="M:AndiSoft.Utilities.Extensions.StringExtension.RemoveSpecialCharacters(System.String)">
             <summary>
             Remove all chars that are not letters or numbers
+            </summary>
+        </member>
+        <member name="T:AndiSoft.Utilities.Internals.NumberToStringJsonConverter">
+            <summary>
+            Converts number to string
             </summary>
         </member>
         <member name="T:AndiSoft.Utilities.JsonParser">
@@ -460,7 +503,7 @@
             </summary>
             <param name="jsonString">Object to be parsed.</param>
             <param name="obj">New parsed object.</param>
-            <returns>True if sucessful. False otherwise.</returns>
+            <returns>True if successful. False otherwise.</returns>
         </member>
         <member name="T:AndiSoft.Utilities.PasswordGenerator">
             <summary>

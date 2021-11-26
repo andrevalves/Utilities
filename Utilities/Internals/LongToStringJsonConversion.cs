@@ -5,12 +5,12 @@ using System.Globalization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace AndiSoft.Utilities.Extensions
+namespace AndiSoft.Utilities.Internals
 {
     /// <summary>
     /// Converts number to string
     /// </summary>
-    public class NumberToStringJsonConverter : JsonConverter<string>
+    internal class NumberToStringJsonConverter : JsonConverter<string>
     {
         public override string Read(ref Utf8JsonReader reader, Type type, JsonSerializerOptions options)
         {

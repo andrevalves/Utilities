@@ -211,6 +211,144 @@
             <param name="newObj">New parsed object.</param>
             <returns>True if successful. False otherwise.</returns>
         </member>
+        <member name="T:AndiSoft.Utilities.CustomExceptions.CustomApplicationException">
+            <summary>
+            A custom base class for exceptions with support for Unique IDs (GUID) and Error Codes.
+            The ErrorID and ErrorCode are also saved in Data["GUID"] and Data["ErrorCode"] for convenience.
+            </summary>
+        </member>
+        <member name="P:AndiSoft.Utilities.CustomExceptions.CustomApplicationException.ErrorCode">
+            <summary>
+            Error Code as in Data["ErrorCode"]
+            </summary>
+        </member>
+        <member name="P:AndiSoft.Utilities.CustomExceptions.CustomApplicationException.ExceptionId">
+            <summary>
+            Unique Exception ID as in Data["GUID"]
+            </summary>
+        </member>
+        <member name="M:AndiSoft.Utilities.CustomExceptions.CustomApplicationException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Inicializes a new instance of the CustomApplicationException class with serialized data.
+            </summary>
+        </member>
+        <member name="M:AndiSoft.Utilities.CustomExceptions.CustomApplicationException.#ctor">
+            <summary>
+            Creates a new CustomApplicationException. An Unique ID (GUID) will be assigned automatically.
+            </summary>
+        </member>
+        <member name="M:AndiSoft.Utilities.CustomExceptions.CustomApplicationException.#ctor(System.String)">
+            <summary>
+            Creates a new CustomApplicationException. An Unique ID (GUID) will be assigned automatically.
+            </summary>
+            <param name="message">Exception message</param>
+        </member>
+        <member name="M:AndiSoft.Utilities.CustomExceptions.CustomApplicationException.#ctor(System.String,System.String)">
+            <summary>
+            Creates a new CustomApplicationException. An Unique ID (GUID) will be assigned automatically.
+            </summary>
+            <param name="code">Error code</param>
+            <param name="message">Error message</param>
+        </member>
+        <member name="M:AndiSoft.Utilities.CustomExceptions.CustomApplicationException.#ctor(System.Int64,System.String)">
+            <summary>
+            Creates a new CustomApplicationException. An Unique ID (GUID) will be assigned automatically.
+            </summary>
+            <param name="code">Error code. Will be saved as string</param>
+            <param name="message">Error message</param>
+        </member>
+        <member name="T:AndiSoft.Utilities.CustomExceptions.CustomException">
+            <summary>
+            A custom base class for exceptions with support for Unique IDs (GUID) and Error Codes.
+            The ErrorID and ErrorCode are also saved in Data["GUID"] and Data["ErrorCode"] for convenience.
+            </summary>
+        </member>
+        <member name="P:AndiSoft.Utilities.CustomExceptions.CustomException.ErrorCode">
+            <summary>
+            Error Code as in Data["ErrorCode"]
+            </summary>
+        </member>
+        <member name="P:AndiSoft.Utilities.CustomExceptions.CustomException.ExceptionId">
+            <summary>
+            Unique Exception ID as in Data["GUID"]
+            </summary>
+        </member>
+        <member name="M:AndiSoft.Utilities.CustomExceptions.CustomException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Inicializes a new instance of the CustomException class with serialized data.
+            </summary>
+        </member>
+        <member name="M:AndiSoft.Utilities.CustomExceptions.CustomException.#ctor">
+            <summary>
+            Creates a new CustomException. An Unique ID (GUID) will be assigned automatically.
+            </summary>
+        </member>
+        <member name="M:AndiSoft.Utilities.CustomExceptions.CustomException.#ctor(System.String)">
+            <summary>
+            Creates a new CustomApplicationException. An Unique ID (GUID) will be assigned automatically.
+            </summary>
+            <param name="message">Exception message</param>
+        </member>
+        <member name="M:AndiSoft.Utilities.CustomExceptions.CustomException.#ctor(System.String,System.String)">
+            <summary>
+            Creates a new CustomException. An Unique ID (GUID) will be assigned automatically.
+            </summary>
+            <param name="code">Error code</param>
+            <param name="message">Error message</param>
+        </member>
+        <member name="M:AndiSoft.Utilities.CustomExceptions.CustomException.#ctor(System.Int64,System.String)">
+            <summary>
+            Creates a new CustomException. An Unique ID (GUID) will be assigned automatically.
+            </summary>
+            <param name="code">Error code. Will be saved as string</param>
+            <param name="message">Error message</param>
+        </member>
+        <member name="T:AndiSoft.Utilities.CustomExceptions.CustomSystemException">
+            <summary>
+            A custom base class for exceptions with support for Unique IDs (GUID) and Error Codes.
+            The ErrorID and ErrorCode are also saved in Data["GUID"] and Data["ErrorCode"] for convenience.
+            </summary>
+        </member>
+        <member name="P:AndiSoft.Utilities.CustomExceptions.CustomSystemException.ErrorCode">
+            <summary>
+            Error Code as in Data["ErrorCode"]
+            </summary>
+        </member>
+        <member name="P:AndiSoft.Utilities.CustomExceptions.CustomSystemException.ExceptionId">
+            <summary>
+            Unique Exception ID as in Data["GUID"]
+            </summary>
+        </member>
+        <member name="M:AndiSoft.Utilities.CustomExceptions.CustomSystemException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Inicializes a new instance of the CustomSystemException class with serialized data.
+            </summary>
+        </member>
+        <member name="M:AndiSoft.Utilities.CustomExceptions.CustomSystemException.#ctor">
+            <summary>
+            Creates a new CustomSystemException. An Unique ID (GUID) will be assigned automatically.
+            </summary>
+        </member>
+        <member name="M:AndiSoft.Utilities.CustomExceptions.CustomSystemException.#ctor(System.String)">
+            <summary>
+            Creates a new CustomSystemException. An Unique ID (GUID) will be assigned automatically.
+            </summary>
+            <param name="message">Exception message</param>
+        </member>
+        <member name="M:AndiSoft.Utilities.CustomExceptions.CustomSystemException.#ctor(System.String,System.String)">
+            <summary>
+            Creates a new CustomSystemException. An Unique ID (GUID) will be assigned automatically.
+            </summary>
+            <param name="code">Error code</param>
+            <param name="message">Error message</param>
+        </member>
+        <member name="M:AndiSoft.Utilities.CustomExceptions.CustomSystemException.#ctor(System.Int64,System.String)">
+            <summary>
+            Creates a new CustomSystemException. An Unique ID (GUID) will be assigned automatically.
+            </summary>
+            <param name="code">Error code. Will be saved as string</param>
+            <param name="message">Error message</param>
+        </member>
         <member name="T:AndiSoft.Utilities.Extensions.DateTimeExtension">
             <summary>
             DateTime extension
@@ -308,6 +446,12 @@
             <param name="ex"></param>
             <param name="guid"></param>
             <returns></returns>
+        </member>
+        <member name="M:AndiSoft.Utilities.Extensions.ExceptionExtension.SetExceptionGuid(System.Exception)">
+            <summary>
+            Checks if there's a GUID value in Data["GUID"]. If not, a new GUID is set.
+            </summary>
+            <param name="ex"></param>
         </member>
         <member name="M:AndiSoft.Utilities.Extensions.ExceptionExtension.GetExceptionGuid(System.Exception)">
             <summary>

@@ -87,8 +87,7 @@ namespace AndiSoft.Utilities
             var jsonSettings = new JsonSerializerOptions()
             {
                 PropertyNameCaseInsensitive = true,
-                AllowTrailingCommas = true,
-                NumberHandling = JsonNumberHandling.AllowReadingFromString
+                AllowTrailingCommas = true
             };
             jsonSettings.Converters.Add(new NumberToStringJsonConverter());
 

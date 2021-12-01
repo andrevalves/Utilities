@@ -24,6 +24,16 @@ namespace AndiSoft.Utilities.Extensions
         }
 
         /// <summary>
+        /// Checks if there's a GUID value in Data["GUID"]. If not, a new GUID is set.
+        /// </summary>
+        /// <param name="ex"></param>
+        public static void SetExceptionGuid(this Exception ex)
+        {
+            if (ex.Data["GUID"] == null || ((string) ex.Data["GUID"]).IsNullOrEmpty())
+                ex.Data["GUID"] = Guid.NewGuid().ToString();
+        }
+
+        /// <summary>
         /// Gets GUID value in Data["GUID"]. If no value is present, a new GUID is generated and saved in Data["GUID"].
         /// </summary>
         /// <param name="ex"></param>
@@ -63,9 +73,9 @@ namespace AndiSoft.Utilities.Extensions
             var stackFrames = stackTrace.GetFrames();
             var result = stackFrames?.Select(sf => new
             {
-                Caller = (sf.GetMethod() as MethodInfo)?.ToShortString() ?? string.Empty,
-                FileName = Path.GetFileName(sf.GetFileName()),
-                LineNumber = sf.GetFileLineNumber(),
+                Caller = (sf?.GetMethod() as MethodInfo)?.ToShortString() ?? string.Empty,
+                FileName = Path.GetFileName(sf?.GetFileName()),
+                LineNumber = sf?.GetFileLineNumber(),
             });
 
             return result;

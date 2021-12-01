@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace AndiSoft.Utilities.Extensions
 {
@@ -29,14 +30,7 @@ namespace AndiSoft.Utilities.Extensions
         ///</summary>
         public static bool AnyEqualElement<T>(this List<T> thisList, List<T> listToCompare, Func<T,T, bool> areEqualFunc)
         {
-            foreach(var elementA in thisList)
-            {
-                foreach(var elementB in listToCompare)
-                {
-                    if (areEqualFunc(elementA, elementB)) return true;
-                }
-            }
-            return false;
+            return thisList.Any(elementA => listToCompare.Any(elementB => areEqualFunc(elementA, elementB)));
         }
     }
 }

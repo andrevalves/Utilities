@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;netstandard2.1;net5;netcoreapp3.1;net462;</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;netstandard2.1;net5;netcoreapp3.1;net461;net472;net48</TargetFrameworks>
     <Authors>André Alves</Authors>
     <Description>
       This packge contains some useful tools such as:
@@ -10,6 +10,7 @@
   - List Extensions
   - Enum Extensions
   - Exception Extension (new)
+  - CustomExceptions with Unique ID and Error Code
   - Type Converters
   - Generics Conversion
   - Json serializer and parser
@@ -25,8 +26,9 @@
     <Product>Utilities</Product>
     <PackageProjectUrl>https://github.com/andrevalves/Utilities</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Version>1.2.4</Version>
-    <PackageReleaseNotes></PackageReleaseNotes>
+    <Version>1.2.5</Version>
+    <PackageReleaseNotes>Custom Exceptions are back! They now have support for Unique IDs and Error Codes.</PackageReleaseNotes>
+    <PackageOutputPath>C:\Temp\NugetPackages</PackageOutputPath>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)'=='Debug'">
@@ -50,8 +52,24 @@
     <None Remove="AndiSoft.Utilities.xml" />
   </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="System.Text.Json" Version="5.0.2" />
+  <ItemGroup Condition="'$(TargetFramework)' == 'net461'">
+    <PackageReference Include="System.Text.Json" Version="6.0.0" />
+  </ItemGroup>
+
+	<ItemGroup Condition="'$(TargetFramework)' == 'net472'">
+    <PackageReference Include="System.Text.Json" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net48'">
+    <PackageReference Include="System.Text.Json" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+    <PackageReference Include="System.Text.Json" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.1'">
+    <PackageReference Include="System.Text.Json" Version="6.0.0" />
   </ItemGroup>
 
 </Project>

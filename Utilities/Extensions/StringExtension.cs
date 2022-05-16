@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Globalization;
 using System.Linq;
 using System.Text.RegularExpressions;
+using AndiSoft.Utilities.Internals;
 
 namespace AndiSoft.Utilities.Extensions
 {
@@ -104,11 +104,11 @@ namespace AndiSoft.Utilities.Extensions
         /// Converts string to DateTime
         /// </summary>
         /// <param name="date"></param>
-        /// <param name="format">Date format. Default: dd/MM/yyyy</param>
+        /// <param name="format">Date format. Default: yyyy/MM/dd</param>
         /// <returns></returns>
         public static DateTime ToDateTime(this string date, string format = "yyyy/MM/dd")
         {
-            return DateTime.ParseExact(date, format, CultureInfo.InvariantCulture);
+            return Convertions.ToDateTime(date, format);
         }
 
         /// <summary>

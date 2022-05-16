@@ -560,7 +560,7 @@
             Converts string to DateTime
             </summary>
             <param name="date"></param>
-            <param name="format">Date format. Default: dd/MM/yyyy</param>
+            <param name="format">Date format. Default: yyyy/MM/dd</param>
             <returns></returns>
         </member>
         <member name="M:AndiSoft.Utilities.Extensions.StringExtension.RemoveAccents(System.String)">

@@ -26,8 +26,8 @@
     <Product>Utilities</Product>
     <PackageProjectUrl>https://github.com/andrevalves/Utilities</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Version>1.2.6</Version>
-    <PackageReleaseNotes>Custom Exceptions now have support for Unique IDs and Error Codes.</PackageReleaseNotes>
+    <Version>1.2.7</Version>
+    <PackageReleaseNotes>Added string.Truncate() extension method</PackageReleaseNotes>
     <PackageOutputPath>C:\Temp\NugetPackages</PackageOutputPath>
   </PropertyGroup>
 
@@ -53,7 +53,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.Text.Json" Version="6.0.3" />
+    <PackageReference Include="System.Text.Json" Version="6.0.5" />
   </ItemGroup>
 
 </Project>

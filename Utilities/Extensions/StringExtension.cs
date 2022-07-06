@@ -136,5 +136,19 @@ namespace AndiSoft.Utilities.Extensions
             var rgx = new Regex("[^a-zA-Z0-9 -]");
             return rgx.Replace(text, "");
         }
+
+        /// <summary>
+        /// Cuts the string at the specified length
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="maxLength">The length at which the string will be truncated</param>
+        /// <returns></returns>
+        public static string Truncate(this string text, int maxLength)
+        {
+            if (!text.IsNullOrEmpty() && text.Length > maxLength)
+                return text.Substring(0, maxLength);
+
+            return text;
+        }
     }
 }

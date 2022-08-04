@@ -45,15 +45,16 @@ namespace AndiSoft.Utilities
         /// <returns></returns>
         public static bool IsValidCpf(string cpf)
         {
-            if (cpf.IsNullOrEmpty()) return false;
+            if (cpf.IsNullOrEmpty()) 
+                return false;
 
             var mt1 = new int[9] { 10, 9, 8, 7, 6, 5, 4, 3, 2 };
             var mt2 = new int[10] { 11, 10, 9, 8, 7, 6, 5, 4, 3, 2 };
 
             cpf = cpf.Trim();
-            cpf = cpf.Replace(".", "").Replace("-", "");
+            cpf = cpf.Replace(".", "").Replace("-", "").Replace(" ","");
 
-            if (cpf.Length != 11)
+            if (cpf.Length != 11 || !IsNumberOnly(cpf))
                 return false;
 
             var tempCpf = cpf.Substring(0, 9);

@@ -9,29 +9,29 @@
             Useful Conversions
             </summary>
         </member>
-        <member name="M:AndiSoft.Utilities.AndiConvert.TryParse(System.String,System.DateTime@,System.String)">
+        <member name="M:AndiSoft.Utilities.AndiConvert.TryParseDate(System.String,System.DateTime@,System.String)">
             <sumary>
             Transform string into dateTime. Returns null if parse is not successful
             </sumary>
         </member>
         <member name="M:AndiSoft.Utilities.AndiConvert.ToFloat(System.String)">
             <summary>
-            Returns a float number. Returns 0 if the string is not a valid number.
+            Returns a float number.
             </summary>
         </member>
         <member name="M:AndiSoft.Utilities.AndiConvert.ToDouble(System.String)">
             <summary>
-            Returns a double number. Returns 0 if the string is not a valid number.
+            Returns a double number.
             </summary>
         </member>
         <member name="M:AndiSoft.Utilities.AndiConvert.ToDecimal(System.String)">
             <summary>
-            Returns a decimal number. Returns 0 if the string is not a valid number.
+            Returns a decimal number.
             </summary>
         </member>
         <member name="M:AndiSoft.Utilities.AndiConvert.ToInt(System.String)">
             <summary>
-            Returns a integer number. Returns 0 if the string is not a valid number.
+            Returns a integer number.
             </summary>
         </member>
         <member name="M:AndiSoft.Utilities.AndiConvert.Parse``1(System.Object)">

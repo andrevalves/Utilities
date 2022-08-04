@@ -12,7 +12,7 @@ namespace AndiSoft.Utilities
         ///<sumary>
         ///Transform string into dateTime. Returns null if parse is not successful
         ///</sumary>
-        public static bool TryParse(string date, out DateTime dateTime, string format = "yyyy/MM/dd")
+        public static bool TryParseDate(string date, out DateTime dateTime, string format = "yyyy/MM/dd")
         {
             try
             {
@@ -27,57 +27,35 @@ namespace AndiSoft.Utilities
         }
 
         ///<summary>
-        ///Returns a float number. Returns 0 if the string is not a valid number.
+        ///Returns a float number.
         ///</summary>
         public static float ToFloat(string text)
         {
-            try
-            {
-                return float.Parse(text.Replace('.', ','));
-            }
-            catch
-            {
-                return 0;
-            }
+            return float.Parse(text.Replace('.', ','));
         }
 
         ///<summary>
-        ///Returns a double number. Returns 0 if the string is not a valid number.
+        ///Returns a double number.
         ///</summary>
         public static double ToDouble(string text)
         {
-            try
-            {
-                return double.Parse(text.Replace('.', ','));
-            }
-            catch
-            {
-                return 0;
-            }
+            return double.Parse(text.Replace('.', ','));
         }
 
         ///<summary>
-        ///Returns a decimal number. Returns 0 if the string is not a valid number.
+        ///Returns a decimal number.
         ///</summary>
         public static decimal ToDecimal(string text)
         {
-            try
-            {
-                return decimal.Parse(text.Replace('.', ','));
-            }
-            catch
-            {
-                return 0;
-            }
+            return decimal.Parse(text.Replace('.', ','));
         }
 
         ///<summary>
-        ///Returns a integer number. Returns 0 if the string is not a valid number.
+        ///Returns a integer number.
         ///</summary>
         public static int ToInt(string text)
         {
-            int.TryParse(text, out var number);
-            return number;
+            return int.Parse(text);
         }
 
         /// <summary>

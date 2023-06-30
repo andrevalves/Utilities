@@ -47,7 +47,7 @@
             </summary>
             <param name="obj">Object to be parsed.</param>
             <param name="newObj">New parsed object.</param>
-            <returns>True if sucessful. False otherwise.</returns>
+            <returns>True if successful. False otherwise.</returns>
         </member>
         <member name="T:AndiSoft.Utilities.AndiHelper">
             <summary>
@@ -189,27 +189,6 @@
             <summary>
             Returns a integer number. Returns 0 if the string is not a valid number.
             </summary>
-        </member>
-        <member name="T:AndiSoft.Utilities.Converters.GenericsConverter`1">
-            <summary>
-            Converts object types.
-            </summary>
-            <typeparam name="T">Destination type for the conversion.</typeparam>
-        </member>
-        <member name="M:AndiSoft.Utilities.Converters.GenericsConverter`1.Convert(System.Object)">
-            <summary>
-            Converts the object to the given type.
-            </summary>
-            <param name="obj">Object to be converted.</param>
-            <returns>New object of the given type.</returns>
-        </member>
-        <member name="M:AndiSoft.Utilities.Converters.GenericsConverter`1.TryParse(System.Object,`0@)">
-            <summary>
-            Try to parse object to the given type.
-            </summary>
-            <param name="obj">Object to be parsed.</param>
-            <param name="newObj">New parsed object.</param>
-            <returns>True if successful. False otherwise.</returns>
         </member>
         <member name="T:AndiSoft.Utilities.CustomExceptions.CustomApplicationException">
             <summary>
@@ -661,27 +640,6 @@
             <summary>
             Password Generator
             </summary>
-        </member>
-        <member name="M:AndiSoft.Utilities.PasswordGenerator.GenerateAlphaNumeric(System.Int32)">
-            <summary>
-            Gera senhas alfanuméricas.
-            </summary>
-            <param name="size">Quantidade de caracteres.</param>
-            <returns>Senha aleatória</returns>
-        </member>
-        <member name="M:AndiSoft.Utilities.PasswordGenerator.GenerateNumeric(System.Int32)">
-            <summary>
-            Gera senhas numéricas.
-            </summary>
-            <param name="size">Quantidade de caracteres.</param>
-            <returns>Senha aleatória</returns>
-        </member>
-        <member name="M:AndiSoft.Utilities.PasswordGenerator.GenerateStrongPassword(System.Int32)">
-            <summary>
-            Gera senhas com algarismos alfanuméricos e símbolos.
-            </summary>
-            <param name="size">Quantidade de caracteres.</param>
-            <returns>Senha aleatória</returns>
         </member>
     </members>
 </doc>

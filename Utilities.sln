@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30011.22
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33627.172
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AndiSoft.Utilities", "Utilities\AndiSoft.Utilities.csproj", "{E953A2BC-1FA5-4638-AA46-4EAF899DD696}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AndiSoft.Utilities", "Utilities\AndiSoft.Utilities.csproj", "{E953A2BC-1FA5-4638-AA46-4EAF899DD696}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

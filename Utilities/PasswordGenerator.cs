@@ -13,31 +13,16 @@ namespace AndiSoft.Utilities
         private static readonly char[] SenhaAlfaNumerica = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890".ToCharArray();
         private static readonly char[] SenhaForte = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%&*()".ToCharArray();
 
-        /// <summary>
-        /// Gera senhas alfanuméricas.
-        /// </summary>
-        /// <param name="size">Quantidade de caracteres.</param>
-        /// <returns>Senha aleatória</returns>
         public static string GenerateAlphaNumeric(int size)
         {
             return GeneratePassword(SenhaAlfaNumerica, size);
         }
 
-        /// <summary>
-        /// Gera senhas numéricas.
-        /// </summary>
-        /// <param name="size">Quantidade de caracteres.</param>
-        /// <returns>Senha aleatória</returns>
         public static string GenerateNumeric(int size)
         {
             return GeneratePassword(Numbers, size);
         }
 
-        /// <summary>
-        /// Gera senhas com algarismos alfanuméricos e símbolos.
-        /// </summary>
-        /// <param name="size">Quantidade de caracteres.</param>
-        /// <returns>Senha aleatória</returns>
         public static string GenerateStrongPassword(int size)
         {
             string senhaForte;
@@ -59,7 +44,7 @@ namespace AndiSoft.Utilities
             }
 
             var sb = new StringBuilder(size);
-            foreach (byte b in data)
+            foreach (var b in data)
             {
                 sb.Append(colecao[b % (colecao.Count)]);
             }

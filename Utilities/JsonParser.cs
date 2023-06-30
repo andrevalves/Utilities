@@ -1,6 +1,7 @@
-﻿using System.IO;
+﻿using AndiSoft.Utilities.Converters;
+using System.IO;
 using System.Text.Json;
-using AndiSoft.Utilities.Internals;
+using System.Text.Json.Serialization;
 
 namespace AndiSoft.Utilities
 {
@@ -67,8 +68,8 @@ namespace AndiSoft.Utilities
             var jsonSettings = new JsonSerializerOptions()
             {
                 WriteIndented = identJson,
-                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-                IgnoreNullValues = ignoreNullValues
+                DefaultIgnoreCondition = ignoreNullValues ? JsonIgnoreCondition.WhenWritingNull : JsonIgnoreCondition.Never,
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
             };
 
             return JsonSerializer.Serialize(obj, jsonSettings);
@@ -84,9 +85,10 @@ namespace AndiSoft.Utilities
             var jsonSettings = new JsonSerializerOptions()
             {
                 PropertyNameCaseInsensitive = true,
-                AllowTrailingCommas = true
+                AllowTrailingCommas = true,
+                NumberHandling = JsonNumberHandling.AllowReadingFromString,
+                Converters = { new AutoNumberToStringConverter() }
             };
-            jsonSettings.Converters.Add(new NumberToStringJsonConverter());
 
             return JsonSerializer.Deserialize<T>(jsonString, jsonSettings);
         }
@@ -136,6 +138,6 @@ namespace AndiSoft.Utilities
 
         #endregion
 
-        
+
     }
 }

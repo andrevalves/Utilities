@@ -1,6 +1,8 @@
-﻿using System;
-using System.Text.Json;
+﻿using AndiSoft.Utilities.Converters;
 using AndiSoft.Utilities.Internals;
+using System;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace AndiSoft.Utilities
 {
@@ -65,11 +67,18 @@ namespace AndiSoft.Utilities
         /// <returns>New object of the given type.</returns>
         public static T Parse<T>(object obj)
         {
-            if (obj is string)
-                return JsonSerializer.Deserialize<T>(obj.ToString());
+            var serializer = new JsonSerializerOptions()
+            {
+                PropertyNameCaseInsensitive = true,
+                NumberHandling = JsonNumberHandling.AllowReadingFromString,
+                Converters = { new AutoNumberToStringConverter() }
+            };
 
-            var json = JsonSerializer.Serialize(obj);
-            return JsonSerializer.Deserialize<T>(json);
+            if (obj is string)
+                return JsonSerializer.Deserialize<T>(obj.ToString(), serializer);
+
+            var json = JsonSerializer.Serialize(obj, serializer);
+            return JsonSerializer.Deserialize<T>(json, serializer);
         }
 
         /// <summary>
@@ -77,16 +86,23 @@ namespace AndiSoft.Utilities
         /// </summary>
         /// <param name="obj">Object to be parsed.</param>
         /// <param name="newObj">New parsed object.</param>
-        /// <returns>True if sucessful. False otherwise.</returns>
+        /// <returns>True if successful. False otherwise.</returns>
         public static bool TryParse<T>(object obj, out T newObj)
         {
+            var serializer = new JsonSerializerOptions()
+            {
+                PropertyNameCaseInsensitive = true,
+                NumberHandling = JsonNumberHandling.AllowReadingFromString,
+                Converters = { new AutoNumberToStringConverter() }
+            };
+
             try
             {
                 if (obj is string)
-                    newObj = JsonSerializer.Deserialize<T>(obj.ToString());
+                    newObj = JsonSerializer.Deserialize<T>(obj.ToString(), serializer);
 
-                var json = JsonSerializer.Serialize(obj);
-                newObj = JsonSerializer.Deserialize<T>(json);
+                var json = JsonSerializer.Serialize(obj, serializer);
+                newObj = JsonSerializer.Deserialize<T>(json, serializer);
             }
             catch
             {

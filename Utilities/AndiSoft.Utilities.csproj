@@ -4,31 +4,31 @@
     <TargetFrameworks>netstandard2.0;net461;</TargetFrameworks>
     <Authors>André Alves</Authors>
     <Description>
-      This packge contains some useful tools such as:
-  - String Extensions
-  - Date Extensions
-  - List Extensions
-  - Enum Extensions
-  - Exception Extension (new)
-  - CustomExceptions with Unique ID and Error Code
-  - Type Converters
-  - Generics Conversion
-  - Json serializer and parser
-  - Password generator
-  - Validations (Date, Email, CPF, CNPJ and others)
-  - Helpers 
-  - Read text from file (new)
-  - Read json objects from file (new)
-</Description>
+      This package contains some useful tools such as:
+      - String Extensions
+      - Date Extensions
+      - List Extensions
+      - Enum Extensions
+      - Exception Extension
+      - CustomExceptions with Unique ID and Error Codes
+      - Type Converters
+      - Generics Conversion
+      - Json serializer and parser
+      - Password generator
+      - Validations (Date, Email, CPF, CNPJ and others)
+      - Json reader from text files
+    </Description>
     <Copyright>AndiSoft</Copyright>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageTags>string list enum extensions validations json serializers converters</PackageTags>
     <Product>Utilities</Product>
     <PackageProjectUrl>https://github.com/andrevalves/Utilities</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Version>1.2.8</Version>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <Version>1.2.9</Version>
     <PackageReleaseNotes>Added string.Truncate() extension method</PackageReleaseNotes>
     <PackageOutputPath>C:\Temp\NugetPackages</PackageOutputPath>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)'=='Debug'">
@@ -62,6 +62,10 @@
     <Compile Remove="Http\**" />
     <EmbeddedResource Remove="Http\**" />
     <None Remove="Http\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md" Pack="true" PackagePath="\"/>
   </ItemGroup>
 
   <ItemGroup>

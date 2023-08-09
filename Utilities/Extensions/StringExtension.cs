@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using AndiSoft.Utilities.Internals;
@@ -22,9 +23,9 @@ namespace AndiSoft.Utilities.Extensions
         {
             if (text.IsNullOrEmpty()) return text;
             if (text.Length == 1) return text.ToUpper();
-            var fisrtLetter = text[0].ToString().ToUpper();
+            var firstLetter = text[0].ToString().ToUpper();
             var otherLetters = text.Substring(1).ToLower();
-            return fisrtLetter + otherLetters;
+            return firstLetter + otherLetters;
         }
 
         ///<summary>
@@ -149,6 +150,46 @@ namespace AndiSoft.Utilities.Extensions
                 return text.Substring(0, maxLength);
 
             return text;
+        }
+
+        /// <summary>
+        /// Converts a list of strings into a CSV string or into multiple line string
+        /// </summary>
+        /// <param name="values">String Array</param>
+        /// <param name="splitLines">Whether to split in lines or not. Defaults to false (CSV)</param>
+        /// <returns></returns>
+        public static string ToSingleString(this List<string> values, bool splitLines)
+        {
+            return values.ToArray().ToSingleString(splitLines);
+        }
+
+        /// <summary>
+        /// Converts an array of strings into a CSV string or into multiple line string
+        /// </summary>
+        /// <param name="values">String Array</param>
+        /// <param name="splitLines">Whether to split in lines or not. Defaults to false (CSV)</param>
+        /// <returns></returns>
+        public static string ToSingleString(this string[] values, bool splitLines)
+        {
+            if (values == null || values.Length == 0) return "";
+
+            var str = "";
+            for (var i = 0; i < values.Length; i++)
+            {
+                if (i > 0)
+                {
+                    if (splitLines)
+                    {
+                        str += "\n";
+                    }
+                    else
+                    {
+                        str += ", ";
+                    }
+                }
+                str += values[i];
+            }
+            return str;
         }
     }
 }

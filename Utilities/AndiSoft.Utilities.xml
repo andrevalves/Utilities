@@ -562,6 +562,22 @@
             <param name="maxLength">The length at which the string will be truncated</param>
             <returns></returns>
         </member>
+        <member name="M:AndiSoft.Utilities.Extensions.StringExtension.ToSingleString(System.Collections.Generic.List{System.String},System.Boolean)">
+            <summary>
+            Converts a list of strings into a CSV string or into multiple line string
+            </summary>
+            <param name="values">String Array</param>
+            <param name="splitLines">Whether to split in lines or not. Defaults to false (CSV)</param>
+            <returns></returns>
+        </member>
+        <member name="M:AndiSoft.Utilities.Extensions.StringExtension.ToSingleString(System.String[],System.Boolean)">
+            <summary>
+            Converts an array of strings into a CSV string or into multiple line string
+            </summary>
+            <param name="values">String Array</param>
+            <param name="splitLines">Whether to split in lines or not. Defaults to false (CSV)</param>
+            <returns></returns>
+        </member>
         <member name="T:AndiSoft.Utilities.Internals.NumberToStringJsonConverter">
             <summary>
             Converts number to string

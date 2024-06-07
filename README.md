@@ -17,6 +17,11 @@ It provides useful tools and helpers such as (I hope it helps):
 
   # Changes
 
+  **Version 1.2.10**
+
+  - CustomExceptions now accept InnerExceptions
+
+
   **Version 1.2.9**
 
   - Added support for serializing number attributes to string.

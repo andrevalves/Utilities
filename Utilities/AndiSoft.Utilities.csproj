@@ -25,8 +25,8 @@
     <PackageProjectUrl>https://github.com/andrevalves/Utilities</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <Version>1.2.10</Version>
-    <PackageReleaseNotes>Custom exceptions now accepts inner exceptions</PackageReleaseNotes>
+    <Version>1.2.11</Version>
+    <PackageReleaseNotes>Updated Dependencies</PackageReleaseNotes>
     <PackageOutputPath>C:\Temp\NugetPackages</PackageOutputPath>
     <LangVersion>latest</LangVersion>
   </PropertyGroup>

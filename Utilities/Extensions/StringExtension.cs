@@ -1,8 +1,8 @@
-﻿using System;
+﻿using AndiSoft.Utilities.Internals;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
-using AndiSoft.Utilities.Internals;
 
 namespace AndiSoft.Utilities.Extensions
 {
@@ -11,7 +11,7 @@ namespace AndiSoft.Utilities.Extensions
     /// </summary>
     public static class StringExtension
     {
-        private static readonly string[] Preposicoes = {"e", "de", "da", "das", "do", "dos", "com", "na", "nas", "no", "nos"};
+        private static readonly string[] Preposicoes = { "e", "de", "da", "das", "do", "dos", "com", "na", "nas", "no", "nos" };
 
         private const string ComAcentos = "ÄÅÁÂÀÃäáâàãÉÊËÈéêëèÍÎÏÌíîïìÖÓÔÒÕöóôòõÜÚÛüúûùÇç";
         private const string SemAcentos = "AAAAAAaaaaaEEEEeeeeIIIIiiiiOOOOOoooooUUUuuuuCc";
@@ -156,20 +156,30 @@ namespace AndiSoft.Utilities.Extensions
         /// Converts a list of strings into a CSV string or into multiple line string
         /// </summary>
         /// <param name="values">String Array</param>
-        /// <param name="splitLines">Whether to split in lines or not. Defaults to false (CSV)</param>
+        /// <param name="splitCharacter">Optional. Split Character. Default = ','</param>
         /// <returns></returns>
-        public static string ToSingleString(this List<string> values, bool splitLines)
+        public static string ToSingleString(this List<string> values, char splitCharacter = ',')
         {
-            return values.ToArray().ToSingleString(splitLines);
+            return values.ToArray().ToSingleString(splitCharacter);
         }
 
         /// <summary>
-        /// Converts an array of strings into a CSV string or into multiple line string
+        /// Converts a list of strings into a CSV string or into multiple line string
         /// </summary>
         /// <param name="values">String Array</param>
-        /// <param name="splitLines">Whether to split in lines or not. Defaults to false (CSV)</param>
         /// <returns></returns>
-        public static string ToSingleString(this string[] values, bool splitLines)
+        public static string ToMultipleLineString(this List<string> values)
+        {
+            return values.ToArray().ToMultipleLineString();
+        }
+
+        /// <summary>
+        /// Converts an array of strings into a CSV string
+        /// </summary>
+        /// <param name="values">String Array</param>
+        /// <param name="splitCharacter">Optional. Split Character. Default = ','</param>
+        /// <returns></returns>
+        public static string ToSingleString(this string[] values, char splitCharacter = ',')
         {
             if (values == null || values.Length == 0) return "";
 
@@ -178,14 +188,28 @@ namespace AndiSoft.Utilities.Extensions
             {
                 if (i > 0)
                 {
-                    if (splitLines)
-                    {
-                        str += "\n";
-                    }
-                    else
-                    {
-                        str += ", ";
-                    }
+                    str += splitCharacter + " ";
+                }
+                str += values[i];
+            }
+            return str;
+        }
+
+        /// <summary>
+        /// Converts an array of strings into a CSV string
+        /// </summary>
+        /// <param name="values">String Array</param>
+        /// <returns></returns>
+        public static string ToMultipleLineString(this string[] values)
+        {
+            if (values == null || values.Length == 0) return "";
+
+            var str = "";
+            for (var i = 0; i < values.Length; i++)
+            {
+                if (i > 0)
+                {
+                    str += "\n";
                 }
                 str += values[i];
             }

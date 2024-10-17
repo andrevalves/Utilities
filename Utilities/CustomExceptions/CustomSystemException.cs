@@ -1,6 +1,6 @@
-﻿using System;
+﻿using AndiSoft.Utilities.Extensions;
+using System;
 using System.Runtime.Serialization;
-using AndiSoft.Utilities.Extensions;
 
 namespace AndiSoft.Utilities.CustomExceptions
 {
@@ -14,7 +14,8 @@ namespace AndiSoft.Utilities.CustomExceptions
         /// <summary>
         /// Error Code as in Data["ErrorCode"]
         /// </summary>
-        public string ErrorCode {
+        public string ErrorCode
+        {
             get
             {
                 if (Data["ErrorCode"] == null || ((string)Data["ErrorCode"]).IsNullOrEmpty())
@@ -31,7 +32,7 @@ namespace AndiSoft.Utilities.CustomExceptions
         {
             get
             {
-                if(Data["GUID"] == null || ((string)Data["GUID"]).IsNullOrEmpty())
+                if (Data["GUID"] == null || ((string)Data["GUID"]).IsNullOrEmpty())
                     this.SetExceptionGuid();
 
                 return (string)Data["GUID"];
@@ -44,7 +45,7 @@ namespace AndiSoft.Utilities.CustomExceptions
         public CustomSystemException(SerializationInfo info, StreamingContext context) : base(info, context) { }
 
         /// <summary>
-        /// Creates a new CustomSystemException. An Unique ID (GUID) will be assigned automatically.
+        /// Creates a new CustomSystemException. A Unique ID (GUID) will be assigned automatically.
         /// </summary>
         public CustomSystemException()
         {
@@ -52,31 +53,43 @@ namespace AndiSoft.Utilities.CustomExceptions
         }
 
         /// <summary>
-        /// Creates a new CustomSystemException. An Unique ID (GUID) will be assigned automatically.
+        /// Creates a new CustomSystemException. A Unique ID (GUID) will be assigned automatically.
         /// </summary>
-        /// <param name="message">Exception message</param>
-        public CustomSystemException(string message) : base(message)
+        /// <param name="innerException">Inner Exception</param>
+        public CustomSystemException(Exception innerException) : base(innerException.Message, innerException)
         {
             this.SetExceptionGuid();
         }
 
         /// <summary>
-        /// Creates a new CustomSystemException. An Unique ID (GUID) will be assigned automatically.
+        /// Creates a new CustomSystemException. A Unique ID (GUID) will be assigned automatically.
+        /// </summary>
+        /// <param name="message">Exception message</param>
+        /// <param name="innerException">Inner Exception</param>
+        public CustomSystemException(string message, Exception innerException = null) : base(message, innerException)
+        {
+            this.SetExceptionGuid();
+        }
+
+        /// <summary>
+        /// Creates a new CustomSystemException. A Unique ID (GUID) will be assigned automatically.
         /// </summary>
         /// <param name="code">Error code</param>
         /// <param name="message">Error message</param>
-        public CustomSystemException(string code, string message) : base(message)
+        /// <param name="innerException">Inner Exception</param>
+        public CustomSystemException(string code, string message, Exception innerException = null) : base(message, innerException)
         {
             this.SetExceptionGuid();
             this.SetErrorCode(code);
         }
 
         /// <summary>
-        /// Creates a new CustomSystemException. An Unique ID (GUID) will be assigned automatically.
+        /// Creates a new CustomSystemException. A Unique ID (GUID) will be assigned automatically.
         /// </summary>
         /// <param name="code">Error code. Will be saved as string</param>
         /// <param name="message">Error message</param>
-        public CustomSystemException(long code, string message) : base(message)
+        /// <param name="innerException">Inner Exception</param>
+        public CustomSystemException(long code, string message, Exception innerException = null) : base(message, innerException)
         {
             this.SetExceptionGuid();
             this.SetErrorCode(code.ToString());

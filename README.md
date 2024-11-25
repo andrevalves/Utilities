@@ -17,6 +17,16 @@ It provides useful tools and helpers such as (I hope it helps):
 
   # Changes
 
+  **Version 1.1.12**
+  
+  - Custom Exceptions now can store additional details. Useful for logging.
+
+
+  **Version 1.1.11**
+  
+  - Updated Dependencies
+
+
   **Version 1.2.10**
 
   - CustomExceptions now accept InnerExceptions

@@ -196,6 +196,11 @@
             The ErrorID and ErrorCode are also saved in Data["GUID"] and Data["ErrorCode"] for convenience.
             </summary>
         </member>
+        <member name="P:AndiSoft.Utilities.CustomExceptions.CustomApplicationException.Detail">
+            <summary>
+            Exception Details.
+            </summary>
+        </member>
         <member name="P:AndiSoft.Utilities.CustomExceptions.CustomApplicationException.ErrorCode">
             <summary>
             Error Code as in Data["ErrorCode"]
@@ -213,33 +218,49 @@
         </member>
         <member name="M:AndiSoft.Utilities.CustomExceptions.CustomApplicationException.#ctor">
             <summary>
-            Creates a new CustomApplicationException. An Unique ID (GUID) will be assigned automatically.
+            Creates a new CustomApplicationException. A Unique ID (GUID) will be assigned automatically.
             </summary>
         </member>
-        <member name="M:AndiSoft.Utilities.CustomExceptions.CustomApplicationException.#ctor(System.String)">
+        <member name="M:AndiSoft.Utilities.CustomExceptions.CustomApplicationException.#ctor(System.Exception,System.String)">
             <summary>
-            Creates a new CustomApplicationException. An Unique ID (GUID) will be assigned automatically.
+            Creates a new CustomApplicationException. A Unique ID (GUID) will be assigned automatically.
+            </summary>
+        </member>
+        <member name="M:AndiSoft.Utilities.CustomExceptions.CustomApplicationException.#ctor(System.String,System.Exception,System.String)">
+            <summary>
+            Creates a new CustomApplicationException. A Unique ID (GUID) will be assigned automatically.
             </summary>
             <param name="message">Exception message</param>
+            <param name="innerException">Inner Exception</param>
+            <param name="detail">Exception Detail</param>
         </member>
-        <member name="M:AndiSoft.Utilities.CustomExceptions.CustomApplicationException.#ctor(System.String,System.String)">
+        <member name="M:AndiSoft.Utilities.CustomExceptions.CustomApplicationException.#ctor(System.String,System.String,System.Exception,System.String)">
             <summary>
-            Creates a new CustomApplicationException. An Unique ID (GUID) will be assigned automatically.
+            Creates a new CustomApplicationException. A Unique ID (GUID) will be assigned automatically.
             </summary>
             <param name="code">Error code</param>
             <param name="message">Error message</param>
+            <param name="innerException">Inner Exception</param>
+            <param name="detail">Exception Detail</param>
         </member>
-        <member name="M:AndiSoft.Utilities.CustomExceptions.CustomApplicationException.#ctor(System.Int64,System.String)">
+        <member name="M:AndiSoft.Utilities.CustomExceptions.CustomApplicationException.#ctor(System.Int64,System.String,System.Exception,System.String)">
             <summary>
-            Creates a new CustomApplicationException. An Unique ID (GUID) will be assigned automatically.
+            Creates a new CustomApplicationException. A Unique ID (GUID) will be assigned automatically.
             </summary>
             <param name="code">Error code. Will be saved as string</param>
             <param name="message">Error message</param>
+            <param name="innerException">Inner Exception</param>
+            <param name="detail">Exception Detail</param>
         </member>
         <member name="T:AndiSoft.Utilities.CustomExceptions.CustomException">
             <summary>
             A custom base class for exceptions with support for Unique IDs (GUID) and Error Codes.
             The ErrorID and ErrorCode are also saved in Data["GUID"] and Data["ErrorCode"] for convenience.
+            </summary>
+        </member>
+        <member name="P:AndiSoft.Utilities.CustomExceptions.CustomException.Detail">
+            <summary>
+            Exception Details.
             </summary>
         </member>
         <member name="P:AndiSoft.Utilities.CustomExceptions.CustomException.ErrorCode">
@@ -259,33 +280,50 @@
         </member>
         <member name="M:AndiSoft.Utilities.CustomExceptions.CustomException.#ctor">
             <summary>
-            Creates a new CustomException. An Unique ID (GUID) will be assigned automatically.
+            Creates a new CustomException. A Unique ID (GUID) will be assigned automatically.
             </summary>
         </member>
-        <member name="M:AndiSoft.Utilities.CustomExceptions.CustomException.#ctor(System.String)">
+        <member name="M:AndiSoft.Utilities.CustomExceptions.CustomException.#ctor(System.Exception,System.String)">
             <summary>
-            Creates a new CustomApplicationException. An Unique ID (GUID) will be assigned automatically.
+            Creates a new CustomException. A Unique ID (GUID) will be assigned automatically.
+            </summary>
+            <param name="detail">Exception Detail</param>
+        </member>
+        <member name="M:AndiSoft.Utilities.CustomExceptions.CustomException.#ctor(System.String,System.Exception,System.String)">
+            <summary>
+            Creates a new CustomApplicationException. A Unique ID (GUID) will be assigned automatically.
             </summary>
             <param name="message">Exception message</param>
+            <param name="innerException">Inner Exception</param>
+            <param name="detail">Exception Detail</param>
         </member>
-        <member name="M:AndiSoft.Utilities.CustomExceptions.CustomException.#ctor(System.String,System.String)">
+        <member name="M:AndiSoft.Utilities.CustomExceptions.CustomException.#ctor(System.String,System.String,System.Exception,System.String)">
             <summary>
-            Creates a new CustomException. An Unique ID (GUID) will be assigned automatically.
+            Creates a new CustomException. A Unique ID (GUID) will be assigned automatically.
             </summary>
             <param name="code">Error code</param>
             <param name="message">Error message</param>
+            <param name="innerException">Inner Exception</param>
+            <param name="detail">Exception Detail</param>
         </member>
-        <member name="M:AndiSoft.Utilities.CustomExceptions.CustomException.#ctor(System.Int64,System.String)">
+        <member name="M:AndiSoft.Utilities.CustomExceptions.CustomException.#ctor(System.Int64,System.String,System.Exception,System.String)">
             <summary>
-            Creates a new CustomException. An Unique ID (GUID) will be assigned automatically.
+            Creates a new CustomException. A Unique ID (GUID) will be assigned automatically.
             </summary>
             <param name="code">Error code. Will be saved as string</param>
             <param name="message">Error message</param>
+            <param name="innerException">Inner Exception</param>
+            <param name="detail">Exception Detail</param>
         </member>
         <member name="T:AndiSoft.Utilities.CustomExceptions.CustomSystemException">
             <summary>
             A custom base class for exceptions with support for Unique IDs (GUID) and Error Codes.
             The ErrorID and ErrorCode are also saved in Data["GUID"] and Data["ErrorCode"] for convenience.
+            </summary>
+        </member>
+        <member name="P:AndiSoft.Utilities.CustomExceptions.CustomSystemException.Detail">
+            <summary>
+            Exception Details.
             </summary>
         </member>
         <member name="P:AndiSoft.Utilities.CustomExceptions.CustomSystemException.ErrorCode">
@@ -305,28 +343,38 @@
         </member>
         <member name="M:AndiSoft.Utilities.CustomExceptions.CustomSystemException.#ctor">
             <summary>
-            Creates a new CustomSystemException. An Unique ID (GUID) will be assigned automatically.
+            Creates a new CustomSystemException. A Unique ID (GUID) will be assigned automatically.
             </summary>
         </member>
-        <member name="M:AndiSoft.Utilities.CustomExceptions.CustomSystemException.#ctor(System.String)">
+        <member name="M:AndiSoft.Utilities.CustomExceptions.CustomSystemException.#ctor(System.Exception,System.String)">
             <summary>
-            Creates a new CustomSystemException. An Unique ID (GUID) will be assigned automatically.
+            Creates a new CustomSystemException. A Unique ID (GUID) will be assigned automatically.
+            </summary>
+            <param name="innerException">Inner Exception</param>
+            <param name="detail">Exception Detail</param>
+        </member>
+        <member name="M:AndiSoft.Utilities.CustomExceptions.CustomSystemException.#ctor(System.String,System.Exception,System.String)">
+            <summary>
+            Creates a new CustomSystemException. A Unique ID (GUID) will be assigned automatically.
             </summary>
             <param name="message">Exception message</param>
+            <param name="innerException">Inner Exception</param>
         </member>
-        <member name="M:AndiSoft.Utilities.CustomExceptions.CustomSystemException.#ctor(System.String,System.String)">
+        <member name="M:AndiSoft.Utilities.CustomExceptions.CustomSystemException.#ctor(System.String,System.String,System.Exception,System.String)">
             <summary>
-            Creates a new CustomSystemException. An Unique ID (GUID) will be assigned automatically.
+            Creates a new CustomSystemException. A Unique ID (GUID) will be assigned automatically.
             </summary>
             <param name="code">Error code</param>
             <param name="message">Error message</param>
+            <param name="innerException">Inner Exception</param>
         </member>
-        <member name="M:AndiSoft.Utilities.CustomExceptions.CustomSystemException.#ctor(System.Int64,System.String)">
+        <member name="M:AndiSoft.Utilities.CustomExceptions.CustomSystemException.#ctor(System.Int64,System.String,System.Exception,System.String)">
             <summary>
-            Creates a new CustomSystemException. An Unique ID (GUID) will be assigned automatically.
+            Creates a new CustomSystemException. A Unique ID (GUID) will be assigned automatically.
             </summary>
             <param name="code">Error code. Will be saved as string</param>
             <param name="message">Error message</param>
+            <param name="innerException">Inner Exception</param>
         </member>
         <member name="T:AndiSoft.Utilities.Extensions.DateTimeExtension">
             <summary>
@@ -562,20 +610,34 @@
             <param name="maxLength">The length at which the string will be truncated</param>
             <returns></returns>
         </member>
-        <member name="M:AndiSoft.Utilities.Extensions.StringExtension.ToSingleString(System.Collections.Generic.List{System.String},System.Boolean)">
+        <member name="M:AndiSoft.Utilities.Extensions.StringExtension.ToSingleString(System.Collections.Generic.List{System.String},System.Char)">
             <summary>
             Converts a list of strings into a CSV string or into multiple line string
             </summary>
             <param name="values">String Array</param>
-            <param name="splitLines">Whether to split in lines or not. Defaults to false (CSV)</param>
+            <param name="splitCharacter">Optional. Split Character. Default = ','</param>
             <returns></returns>
         </member>
-        <member name="M:AndiSoft.Utilities.Extensions.StringExtension.ToSingleString(System.String[],System.Boolean)">
+        <member name="M:AndiSoft.Utilities.Extensions.StringExtension.ToMultipleLineString(System.Collections.Generic.List{System.String})">
             <summary>
-            Converts an array of strings into a CSV string or into multiple line string
+            Converts a list of strings into a CSV string or into multiple line string
             </summary>
             <param name="values">String Array</param>
-            <param name="splitLines">Whether to split in lines or not. Defaults to false (CSV)</param>
+            <returns></returns>
+        </member>
+        <member name="M:AndiSoft.Utilities.Extensions.StringExtension.ToSingleString(System.String[],System.Char)">
+            <summary>
+            Converts an array of strings into a CSV string
+            </summary>
+            <param name="values">String Array</param>
+            <param name="splitCharacter">Optional. Split Character. Default = ','</param>
+            <returns></returns>
+        </member>
+        <member name="M:AndiSoft.Utilities.Extensions.StringExtension.ToMultipleLineString(System.String[])">
+            <summary>
+            Converts an array of strings into a CSV string
+            </summary>
+            <param name="values">String Array</param>
             <returns></returns>
         </member>
         <member name="T:AndiSoft.Utilities.Internals.NumberToStringJsonConverter">

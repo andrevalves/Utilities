@@ -25,8 +25,8 @@
     <PackageProjectUrl>https://github.com/andrevalves/Utilities</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <Version>1.2.11</Version>
-    <PackageReleaseNotes>Updated Dependencies</PackageReleaseNotes>
+    <Version>1.2.12</Version>
+    <PackageReleaseNotes>Custom Exceptions now can store additional details. Useful for logging.</PackageReleaseNotes>
     <PackageOutputPath>C:\Temp\NugetPackages</PackageOutputPath>
     <LangVersion>latest</LangVersion>
   </PropertyGroup>

@@ -12,6 +12,11 @@ namespace AndiSoft.Utilities.CustomExceptions
     public class CustomApplicationException : ApplicationException
     {
         /// <summary>
+        /// Exception Details.
+        /// </summary>
+        public string Detail { get; }
+
+        /// <summary>
         /// Error Code as in Data["ErrorCode"]
         /// </summary>
         public string ErrorCode
@@ -55,9 +60,10 @@ namespace AndiSoft.Utilities.CustomExceptions
         /// <summary>
         /// Creates a new CustomApplicationException. A Unique ID (GUID) will be assigned automatically.
         /// </summary>
-        public CustomApplicationException(Exception innerException) : base(innerException.Message, innerException)
+        public CustomApplicationException(Exception innerException, string detail) : base(innerException.Message, innerException)
         {
             this.SetExceptionGuid();
+            Detail = detail;
         }
 
         /// <summary>
@@ -65,8 +71,10 @@ namespace AndiSoft.Utilities.CustomExceptions
         /// </summary>
         /// <param name="message">Exception message</param>
         /// <param name="innerException">Inner Exception</param>
-        public CustomApplicationException(string message, Exception innerException = null) : base(message, innerException)
+        /// <param name="detail">Exception Detail</param>
+        public CustomApplicationException(string message, Exception innerException = null, string detail = "") : base(message, innerException)
         {
+            Detail = detail;
             this.SetExceptionGuid();
         }
 
@@ -76,8 +84,10 @@ namespace AndiSoft.Utilities.CustomExceptions
         /// <param name="code">Error code</param>
         /// <param name="message">Error message</param>
         /// <param name="innerException">Inner Exception</param>
-        public CustomApplicationException(string code, string message, Exception innerException = null) : base(message, innerException)
+        /// <param name="detail">Exception Detail</param>
+        public CustomApplicationException(string code, string message, Exception innerException = null, string detail = "") : base(message, innerException)
         {
+            Detail = detail;
             this.SetExceptionGuid();
             this.SetErrorCode(code);
         }
@@ -88,8 +98,10 @@ namespace AndiSoft.Utilities.CustomExceptions
         /// <param name="code">Error code. Will be saved as string</param>
         /// <param name="message">Error message</param>
         /// <param name="innerException">Inner Exception</param>
-        public CustomApplicationException(long code, string message, Exception innerException = null) : base(message, innerException)
+        /// <param name="detail">Exception Detail</param>
+        public CustomApplicationException(long code, string message, Exception innerException = null, string detail = "") : base(message, innerException)
         {
+            Detail = detail;
             this.SetExceptionGuid();
             this.SetErrorCode(code.ToString());
         }

@@ -14,7 +14,17 @@ namespace AndiSoft.Utilities.CustomExceptions
         /// <summary>
         /// Exception Details.
         /// </summary>
-        public string Detail { get; }
+        private string Detail
+        {
+            get
+            {
+                if (Data["Detail"] is not string)
+                    return Data["Detail"].ToJson(true);
+
+                return (string)Data["Detail"];
+            }
+            set => Data["Detail"] = value;
+        }
 
         /// <summary>
         /// Error Code as in Data["ErrorCode"]
@@ -73,6 +83,7 @@ namespace AndiSoft.Utilities.CustomExceptions
         /// </summary>
         /// <param name="message">Exception message</param>
         /// <param name="innerException">Inner Exception</param>
+        /// <param name="detail">Exception Detail</param>
         public CustomSystemException(string message, Exception innerException = null, string detail = "") : base(message, innerException)
         {
             Detail = detail;
@@ -84,6 +95,7 @@ namespace AndiSoft.Utilities.CustomExceptions
         /// </summary>
         /// <param name="code">Error code</param>
         /// <param name="message">Error message</param>
+        /// <param name="detail">Exception Detail</param>
         /// <param name="innerException">Inner Exception</param>
         public CustomSystemException(string code, string message, Exception innerException = null, string detail = "") : base(message, innerException)
         {
@@ -98,11 +110,21 @@ namespace AndiSoft.Utilities.CustomExceptions
         /// <param name="code">Error code. Will be saved as string</param>
         /// <param name="message">Error message</param>
         /// <param name="innerException">Inner Exception</param>
+        /// <param name="detail">Exception Detail</param>
         public CustomSystemException(long code, string message, Exception innerException = null, string detail = "") : base(message, innerException)
         {
             Detail = detail;
             this.SetExceptionGuid();
             this.SetErrorCode(code.ToString());
+        }
+
+        /// <summary>
+        /// Retrieves the Detail created by the constructor
+        /// </summary>
+        /// <returns></returns>
+        public string GetExceptionDetail()
+        {
+            return Detail;
         }
     }
 }

@@ -14,7 +14,17 @@ namespace AndiSoft.Utilities.CustomExceptions
         /// <summary>
         /// Exception Details.
         /// </summary>
-        public string Detail { get; }
+        private string Detail
+        {
+            get
+            {
+                if (Data["Detail"] is not string)
+                    return Data["Detail"].ToJson(true);
+
+                return (string)Data["Detail"];
+            }
+            set => Data["Detail"] = value;
+        }
 
         /// <summary>
         /// Error Code as in Data["ErrorCode"]
@@ -60,6 +70,7 @@ namespace AndiSoft.Utilities.CustomExceptions
         /// <summary>
         /// Creates a new CustomException. A Unique ID (GUID) will be assigned automatically.
         /// </summary>
+        /// <param name="innerException"></param>
         /// <param name="detail">Exception Detail</param>
         public CustomException(Exception innerException, string detail = "") : base(innerException.Message, innerException)
         {
@@ -105,6 +116,15 @@ namespace AndiSoft.Utilities.CustomExceptions
             Detail = detail;
             this.SetExceptionGuid();
             this.SetErrorCode(code.ToString());
+        }
+
+        /// <summary>
+        /// Retrieves the Detail created by the constructor
+        /// </summary>
+        /// <returns></returns>
+        public string GetExceptionDetail()
+        {
+            return Detail;
         }
     }
 }

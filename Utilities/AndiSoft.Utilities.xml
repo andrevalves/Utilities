@@ -252,6 +252,12 @@
             <param name="innerException">Inner Exception</param>
             <param name="detail">Exception Detail</param>
         </member>
+        <member name="M:AndiSoft.Utilities.CustomExceptions.CustomApplicationException.GetExceptionDetail">
+            <summary>
+            Retrieves the Detail created by the constructor
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:AndiSoft.Utilities.CustomExceptions.CustomException">
             <summary>
             A custom base class for exceptions with support for Unique IDs (GUID) and Error Codes.
@@ -287,6 +293,7 @@
             <summary>
             Creates a new CustomException. A Unique ID (GUID) will be assigned automatically.
             </summary>
+            <param name="innerException"></param>
             <param name="detail">Exception Detail</param>
         </member>
         <member name="M:AndiSoft.Utilities.CustomExceptions.CustomException.#ctor(System.String,System.Exception,System.String)">
@@ -314,6 +321,12 @@
             <param name="message">Error message</param>
             <param name="innerException">Inner Exception</param>
             <param name="detail">Exception Detail</param>
+        </member>
+        <member name="M:AndiSoft.Utilities.CustomExceptions.CustomException.GetExceptionDetail">
+            <summary>
+            Retrieves the Detail created by the constructor
+            </summary>
+            <returns></returns>
         </member>
         <member name="T:AndiSoft.Utilities.CustomExceptions.CustomSystemException">
             <summary>
@@ -359,6 +372,7 @@
             </summary>
             <param name="message">Exception message</param>
             <param name="innerException">Inner Exception</param>
+            <param name="detail">Exception Detail</param>
         </member>
         <member name="M:AndiSoft.Utilities.CustomExceptions.CustomSystemException.#ctor(System.String,System.String,System.Exception,System.String)">
             <summary>
@@ -366,6 +380,7 @@
             </summary>
             <param name="code">Error code</param>
             <param name="message">Error message</param>
+            <param name="detail">Exception Detail</param>
             <param name="innerException">Inner Exception</param>
         </member>
         <member name="M:AndiSoft.Utilities.CustomExceptions.CustomSystemException.#ctor(System.Int64,System.String,System.Exception,System.String)">
@@ -375,6 +390,13 @@
             <param name="code">Error code. Will be saved as string</param>
             <param name="message">Error message</param>
             <param name="innerException">Inner Exception</param>
+            <param name="detail">Exception Detail</param>
+        </member>
+        <member name="M:AndiSoft.Utilities.CustomExceptions.CustomSystemException.GetExceptionDetail">
+            <summary>
+            Retrieves the Detail created by the constructor
+            </summary>
+            <returns></returns>
         </member>
         <member name="T:AndiSoft.Utilities.Extensions.DateTimeExtension">
             <summary>
@@ -501,6 +523,36 @@
             </summary>
             <param name="ex"></param>
             <returns></returns>
+        </member>
+        <member name="M:AndiSoft.Utilities.Extensions.ExceptionExtension.SetDataValue(System.Exception,System.String,System.String)">
+            <summary>
+            Sets Addition data to the exception.
+            </summary>
+            <param name="ex">This exception</param>
+            <param name="key">Key where to set the data</param>
+            <param name="value">Data value to be set</param>
+        </member>
+        <member name="M:AndiSoft.Utilities.Extensions.ExceptionExtension.GetDataValue(System.Exception,System.String)">
+            <summary>
+            Retrieves string stored the given key.
+            </summary>
+            <param name="ex">This exception</param>
+            <param name="key">The key where data is stored</param>
+        </member>
+        <member name="M:AndiSoft.Utilities.Extensions.ExceptionExtension.SetDataValue``1(System.Exception,System.String,``0)">
+            <summary>
+            Sets Addition data to the exception.
+            </summary>
+            <param name="ex">This exception</param>
+            <param name="key">Key where to set the data</param>
+            <param name="value">Data value to be set</param>
+        </member>
+        <member name="M:AndiSoft.Utilities.Extensions.ExceptionExtension.GetDataValue``1(System.Exception,System.String)">
+            <summary>
+            Retrieves data stored in the given key.
+            </summary>
+            <param name="ex">This exception</param>
+            <param name="key">The key where data is stored</param>
         </member>
         <member name="M:AndiSoft.Utilities.Extensions.ExceptionExtension.GetInnerExceptions(System.Exception,System.Boolean)">
             <summary>

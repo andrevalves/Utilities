@@ -17,7 +17,7 @@ It provides useful tools and helpers such as (I hope it helps):
 
   # Changes
 
-  **Version 1.1.12**
+  **Version 1.1.14**
   
   - Custom Exceptions now can store additional details. Useful for logging.
 

@@ -29,7 +29,7 @@ namespace AndiSoft.Utilities.Extensions
         /// <param name="ex"></param>
         public static void SetExceptionGuid(this Exception ex)
         {
-            if (ex.Data["GUID"] == null || ((string) ex.Data["GUID"]).IsNullOrEmpty())
+            if (ex.Data["GUID"] == null || ((string)ex.Data["GUID"]).IsNullOrEmpty())
                 ex.Data["GUID"] = Guid.NewGuid().ToString();
         }
 
@@ -43,9 +43,9 @@ namespace AndiSoft.Utilities.Extensions
             if (ex.Data["GUID"] == null || ((string)ex.Data["GUID"]).IsNullOrEmpty())
                 ex.Data["GUID"] = Guid.NewGuid().ToString();
 
-            return (string) ex.Data["GUID"];
+            return (string)ex.Data["GUID"];
         }
-        
+
         /// <summary>
         /// Saves the error code in Data["ErrorCode"].
         /// </summary>
@@ -64,7 +64,52 @@ namespace AndiSoft.Utilities.Extensions
         /// <returns></returns>
         public static string GetErrorCode(this Exception ex)
         {
-            return (string) ex.Data["ErrorCode"];
+            return (string)ex.Data["ErrorCode"];
+        }
+
+        /// <summary>
+        /// Sets Addition data to the exception.
+        /// </summary>
+        /// <param name="ex">This exception</param>
+        /// <param name="key">Key where to set the data</param>
+        /// <param name="value">Data value to be set</param>
+        public static void SetDataValue(this Exception ex, string key, string value)
+        {
+            ex.Data[key] = value;
+        }
+
+        /// <summary>
+        /// Retrieves string stored the given key.
+        /// </summary>
+        /// <param name="ex">This exception</param>
+        /// <param name="key">The key where data is stored</param>
+        public static string GetDataValue(this Exception ex, string key)
+        {
+            if (ex.Data[key] is not string)
+                throw new InvalidCastException($"The value stored in '{key}' is not a string. Try using GetDataValue<object> instead.");
+
+            return (string)ex.Data[key];
+        }
+
+        /// <summary>
+        /// Sets Addition data to the exception.
+        /// </summary>
+        /// <param name="ex">This exception</param>
+        /// <param name="key">Key where to set the data</param>
+        /// <param name="value">Data value to be set</param>
+        public static void SetDataValue<T>(this Exception ex, string key, T value)
+        {
+            ex.Data[key] = value;
+        }
+
+        /// <summary>
+        /// Retrieves data stored in the given key.
+        /// </summary>
+        /// <param name="ex">This exception</param>
+        /// <param name="key">The key where data is stored</param>
+        public static object GetDataValue<T>(this Exception ex, string key)
+        {
+            return (T)ex.Data[key];
         }
 
         private static IEnumerable<dynamic> GetStackTrace(this Exception exception)
@@ -80,7 +125,7 @@ namespace AndiSoft.Utilities.Extensions
 
             return result;
         }
-        
+
         /// <summary>
         /// List inner exceptions of an exception
         /// </summary>
